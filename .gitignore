@@ -1,0 +1,18 @@
+# created by virtualenv automatically
+Scripts/
+Lib/
+lib/
+include/
+pyvenv.cfg
+
+# PyCharm settings
+.idea/
+
+# Python leftovers
+__pycache__/
+*.pyc
+
+# Distribution folders (created when you build the package)
+dist/
+build/
+*.egg-info/
