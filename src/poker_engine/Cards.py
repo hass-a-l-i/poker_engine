@@ -6,7 +6,11 @@ rank_order = {str(rank): idx + 1 for idx, rank in enumerate(ranks)}
 
 
 class Card:
-    def __init__(self, suit, rank):
+    def __init__(self, card):
+        if len(card) != 2:
+            raise ValueError("Suit and rank needed to construct Card object")
+        suit = card[0]
+        rank = card[1]
         if suit not in suits:
             raise ValueError(f"The suit {suit} does not exist.")
         if rank not in ranks:
@@ -14,8 +18,14 @@ class Card:
         self.suit = suit
         self.rank = rank
 
-    def __str__(self):
-        return f"{self.suit}{self.rank}"
+    def show_card(self):
+        print(f"|{self.suit}{self.rank}|")
+
+    def __repr__(self):
+        return f"|{self.suit}{self.rank}|"
+
+    # def __len__(self):
+    #     return len(card)
 
     def hierarchy(self):
         return rank_order[self.rank]
