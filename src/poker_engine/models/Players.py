@@ -1,4 +1,3 @@
-import numpy as np
 from poker_engine.models.Cards import Card
 
 
@@ -37,6 +36,7 @@ class Player:
     def hand_rank(self):
         if self.check_cards:
             return sum(card.get_rank_numeric() for card in self.hand)
+        return None
 
 
 

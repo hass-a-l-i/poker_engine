@@ -1,10 +1,7 @@
-import numpy as np
-
-suits = np.array(['S', 'D', 'C', 'H'])
-ranks = np.array(['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'])
-rank_order = {str(rank): idx + 1 for idx, rank in enumerate(ranks)}
-# ranks_A_low = np.array(['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'])
-# ranks_A_low_order = {str(rank): idx + 1 for idx, rank in enumerate(ranks_A_low)}
+import poker_engine.config.global_vars as gv
+suits = gv.suits
+ranks = gv.ranks
+rank_order = gv.rank_order
 
 
 class Card:
