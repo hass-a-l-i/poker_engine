@@ -1,8 +1,7 @@
 import numpy as np
 from poker_engine.models.Cards import Card
-
-suits = np.array(['S', 'D', 'C', 'H'])
-ranks = np.array(['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'])
+import poker_engine.config.global_vars as gv
+start_deck = gv.start_deck
 
 
 class Deck:
@@ -19,7 +18,6 @@ class Deck:
         return len(self.state)
 
     def initialise(self) -> None:
-        start_deck = np.array([i + j for i in suits for j in ranks])
         for card in start_deck:
             card_in = Card(card)
             self.state.append(card_in)
