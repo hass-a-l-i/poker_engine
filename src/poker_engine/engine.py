@@ -3,7 +3,7 @@ from poker_engine.models.Deck import Deck
 from poker_engine.models.Players import Player
 
 if __name__ == "__main__":
-    card = Card("H3")
+    card = Card("H10")
     print(card)
     print(repr(card))
     suit = card.__getattribute__("suit")
