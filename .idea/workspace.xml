@@ -4,27 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc7c0a4b-a10e-4650-86cf-282ad7b89924" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/algorithms/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/config/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/config/global_vars.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/core/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/engine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/models/Cards.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/models/Deck.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/models/Players.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/models/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/poker_engine/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/test_engine.py" afterDir="false" />
-    </list>
+    <list default="true" id="cc7c0a4b-a10e-4650-86cf-282ad7b89924" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -162,7 +142,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772280931106</updated>
       <workItem from="1772280932117" duration="3352000" />
-      <workItem from="1772285570449" duration="787000" />
+      <workItem from="1772285570449" duration="1084000" />
     </task>
     <servers />
   </component>
