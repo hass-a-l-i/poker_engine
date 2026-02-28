@@ -24,7 +24,7 @@ class Deck:
 
     @property
     def check_cards(self) -> bool:
-        no_cards = len(self.state)
+        no_cards:int = len(self.state)
         if not all(isinstance(card, Card) for card in self.state):
             raise Exception("Deck does not contain all card objects")
         if no_cards != 52:
