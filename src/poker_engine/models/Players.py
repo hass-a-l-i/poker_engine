@@ -2,32 +2,35 @@ from poker_engine.models.Cards import Card
 
 
 class Player:
-    def __init__(self, hand=None) -> None:
+    def __init__(self, name, hand=None) -> None:
         self.hand:list[Card] = [] if hand is None else hand
+        self.name:str = name
 
-    def __repr__(self) -> str:
-        info:str = f"""
-        Player Info:
-        No. cards in hand : {len(self.hand)}
+    def get_hand(self) -> list[Card]:
+        return self.hand
+
+    def info(self) -> None:
+        current_hand = "  ".join([str(card) for card in self.hand]) if self.hand else None
+        information:str = f"""
+        Player Info
+        ----------------------
+        Name: {self.name}
+        Hand: {current_hand}
         """
-        return info
+        print(information)
 
     @property
     def check_cards(self) -> bool:
         no_cards:int = len(self.hand)
         if not all(isinstance(card, Card) for card in self.hand):
             raise Exception("Hand includes non Card objects.")
-        if no_cards != 2:
-            raise Exception(f"Hand must have 2 cards. Currently have {no_cards} cards.")
+        if no_cards >= 2:
+            raise Exception(f"{self.name} has too many cards ({no_cards}) in their hand.")
         return True
 
     def add_card(self, card:Card) -> None:
-        no_cards:int = len(self.hand)
-        if no_cards >= 2:
-            raise Exception(f"Hand must have < 2 cards. Currently have {no_cards} cards.")
-        if not isinstance(card, Card):
-            raise Exception(f"Data added to hand is not Card object.")
-        self.hand.append(card)
+        if self.check_cards:
+            self.hand.append(card)
 
     def show_hand(self) -> None:
         if self.check_cards:
@@ -40,3 +43,11 @@ class Player:
 
 
 
+"""
+# no_cards:int = len(self.hand)
+# if no_cards >= 2:
+#     raise Exception(f"Hand must have < 2 cards. Currently have {no_cards} cards.")
+# if not isinstance(card, Card):
+#     raise Exception(f"Data added to hand is not Card object.")
+# self.hand.append(card)
+"""

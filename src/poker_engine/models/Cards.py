@@ -20,8 +20,14 @@ class Card:
     def __str__(self) -> str:
         return f"|{self.suit}{self.rank}|"
 
-    def __repr__(self) -> str:
-        return f"Suit = {self.suit}, Rank = {self.rank}"
+    # def __repr__(self) -> str:
+    #     return f"Suit = {self.suit}, Rank = {self.rank}"
+
+    def get_suit(self) -> str:
+        return self.suit
+
+    def get_rank(self) -> str:
+        return self.rank
 
     def get_rank_numeric(self) -> int:
         return rank_order[self.rank]
