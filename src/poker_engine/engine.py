@@ -3,6 +3,7 @@ from poker_engine.models.Cards import Card
 from poker_engine.models.Deck import Deck
 from poker_engine.models.Players import Player
 from poker_engine.models.Table import Table
+actions_dict = gv.actions_dict
 
 if __name__ == "__main__":
     print(gv.game_rules)
@@ -23,20 +24,29 @@ if __name__ == "__main__":
     while True:
         player = round_players[idx]
         player.info()
-        act = input("Action please \n")
-        if act == "1":
-            round_players.remove(player)
-            print(f"{player.name} folded")
-            idx = 0
-        else:
-            idx += 1
+        action = None
+        act:str = input("Action please \n")
+        try:
+            act:int = int(act)
+            action = actions_dict[act]
+            if action == "Fold":
+                round_players.remove(player)
+                print(f"{player.name} folded")
+                idx = 0
+            elif idx == len(round_players) - 1:
+                idx = 0
+            else:
+                idx += 1
+        except (ValueError, KeyError):
+            print("Invalid action try again.")
 
         if len(round_players) == 1:
             break
 
-
     # now need to do a round
     # def actions for each player in round class
+
+
 
 
 
