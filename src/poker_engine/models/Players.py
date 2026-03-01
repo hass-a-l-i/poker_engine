@@ -1,10 +1,12 @@
+import inspect
 from poker_engine.models.Cards import Card
 
 
 class Player:
-    def __init__(self, name, hand=None) -> None:
-        self.hand:list[Card] = [] if hand is None else hand
-        self.name:str = name
+    def __init__(self, name:str, chips:int, hand:list[Card]=None) -> None:
+        self.name = name
+        self.chips = chips
+        self.hand = [] if hand is None else hand
 
     def get_hand(self) -> list[Card]:
         return self.hand
@@ -12,11 +14,11 @@ class Player:
     def info(self) -> None:
         current_hand = "  ".join([str(card) for card in self.hand]) if self.hand else None
         information:str = f"""
-        Player Info
-        ----------------------
         Name: {self.name}
         Hand: {current_hand}
+        Chips: {self.chips}
         """
+        information = inspect.cleandoc(information)
         print(information)
 
     @property
@@ -40,6 +42,8 @@ class Player:
         if self.check_cards:
             return sum(card.get_rank_numeric() for card in self.hand)
         return -1
+
+
 
 
 

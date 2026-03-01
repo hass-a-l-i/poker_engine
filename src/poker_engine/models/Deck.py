@@ -1,11 +1,11 @@
 import numpy as np
 from typing import Self
 from poker_engine.models.Cards import Card
+# import poker_engine.config.global_vars as gv
+# start_deck = gv.start_deck
 import poker_engine.config.global_vars as gv
-from poker_engine.models.Players import Player
-
-start_deck = gv.start_deck
-
+suits = gv.suits
+ranks = gv.ranks
 
 class Deck:
     def __init__(self, deck:list[Card]=None) -> None:
@@ -24,11 +24,10 @@ class Deck:
         idx = 0 if idx is None else idx
         return self.state.pop(idx)
 
-    def initialise(self) -> Self:
-        for card in start_deck:
-            card_in = Card(card)
-            self.state.append(card_in)
-        return self
+    @classmethod
+    def initialise(cls) -> "Deck":
+        cards = [Card(f"{s}{r}") for s in suits for r in ranks]
+        return cls(cards)
 
     @property
     def check_cards(self) -> bool:

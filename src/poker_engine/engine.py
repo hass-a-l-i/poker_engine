@@ -1,26 +1,43 @@
-from pickletools import decimalnl_long
-
+import poker_engine.config.global_vars as gv
 from poker_engine.models.Cards import Card
 from poker_engine.models.Deck import Deck
 from poker_engine.models.Players import Player
 from poker_engine.models.Table import Table
 
 if __name__ == "__main__":
-    deck = Deck().initialise()
+    print(gv.game_rules)
     n = 3
-    player_ls = [Player(name=f"Player {i+1}") for i in range(n)]
+    buy_in = 1000
+    deck = Deck().initialise()
+    player_ls = [Player(name=f"Player {i+1}", chips=buy_in) for i in range(n)]
     table = Table(players=player_ls, deck=deck)
     # table.deck.shuffle()
     table.deal()
-    for player in player_ls:
-        player.info()
     table.flop()
     table.turn()
     table.river()
     print(table.community_cards())
     print(table.deck)
+    round_players = player_ls
+    idx = 0
+    while True:
+        player = round_players[idx]
+        player.info()
+        act = input("Action please \n")
+        if act == "1":
+            round_players.remove(player)
+            print(f"{player.name} folded")
+            idx = 0
+        else:
+            idx += 1
+
+        if len(round_players) == 1:
+            break
+
 
     # now need to do a round
+    # def actions for each player in round class
+
 
 
 

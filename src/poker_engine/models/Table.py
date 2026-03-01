@@ -2,6 +2,7 @@ from poker_engine.models.Cards import Card
 from poker_engine.models.Players import Player
 from poker_engine.models.Deck import Deck
 
+
 class Table:
     def __init__(self, cards:list[Card]=None, players:list[Player]=None, deck:Deck=None) -> None:
         self.cards = [] if cards is None else cards
@@ -55,4 +56,5 @@ class Table:
             for player in self.players:
                 card:Card = self.deck.pop()
                 player.add_card(card)
-    # incomplete hand if <= 1
+
+
