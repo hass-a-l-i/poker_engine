@@ -14,6 +14,7 @@ class Round:
 
     def init(self) -> None:
         pass
+        # lol
         # do dealer
 
 
