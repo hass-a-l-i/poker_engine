@@ -3,6 +3,7 @@ from poker_engine.models.Cards import Card
 from poker_engine.models.Deck import Deck
 from poker_engine.models.Players import Player
 from poker_engine.models.Table import Table
+from poker_engine.models.Rounds import Round
 actions_dict = gv.actions_dict
 
 if __name__ == "__main__":
@@ -19,29 +20,33 @@ if __name__ == "__main__":
     table.river()
     print(table.community_cards())
     print(table.deck)
-    round_players = player_ls
-    idx = 0
-    while True:
-        player = round_players[idx]
-        player.info()
-        action = None
-        act:str = input("Action please \n")
-        try:
-            act:int = int(act)
-            action = actions_dict[act]
-            if action == "Fold":
-                round_players.remove(player)
-                print(f"{player.name} folded")
-                idx = 0
-            elif idx == len(round_players) - 1:
-                idx = 0
-            else:
-                idx += 1
-        except (ValueError, KeyError):
-            print("Invalid action try again.")
-
-        if len(round_players) == 1:
-            break
+    bb = 100
+    sb = 50
+    round = Round(player_ls, bb, sb)
+    round.begin()
+    # round_players = player_ls
+    # idx = 0
+    # while True:
+    #     player = round_players[idx]
+    #     player.info()
+    #     action = None
+    #     act:str = input("Action please \n")
+    #     try:
+    #         act:int = int(act)
+    #         action = actions_dict[act]
+    #         if action == "Fold":
+    #             round_players.remove(player)
+    #             print(f"{player.name} folded")
+    #             idx = 0
+    #         elif idx == len(round_players) - 1:
+    #             idx = 0
+    #         else:
+    #             idx += 1
+    #     except (ValueError, KeyError):
+    #         print("Invalid action try again.")
+    #
+    #     if len(round_players) == 1:
+    #         break
 
     # now need to do a round
     # def actions for each player in round class

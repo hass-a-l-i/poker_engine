@@ -7,6 +7,8 @@ class Player:
         self.name = name
         self.chips = chips
         self.hand = [] if hand is None else hand
+        self.dealer = False
+        self.current_bet = 0
 
     def get_hand(self) -> list[Card]:
         return self.hand
@@ -17,6 +19,7 @@ class Player:
         Name: {self.name}
         Hand: {current_hand}
         Chips: {self.chips}
+        Current bet: {self.current_bet}
         """
         information = inspect.cleandoc(information)
         print(information)

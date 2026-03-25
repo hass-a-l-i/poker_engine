@@ -18,7 +18,7 @@ class Card:
         self.rank:str = rank
 
     def __str__(self) -> str:
-        return f"|{self.suit}{self.rank}|"
+        return f"|{self.rank}{self.suit}|"
 
     # def __repr__(self) -> str:
     #     return f"Suit = {self.suit}, Rank = {self.rank}"
