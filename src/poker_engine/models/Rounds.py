@@ -1,7 +1,17 @@
+from tkinter import BooleanVar
+
 from poker_engine.models.Cards import Card
 from poker_engine.models.Players import Player
 import poker_engine.config.global_vars as gv
 actions_dict = gv.actions_dict
+
+"""
+TO DO:
+- blinds is only first round pre flop
+- do len log >= len players and highest bet == current bet for all playwers thene nd rouind
+- type casting
+- once round logic complete need to do round winning logic, game object?
+"""
 
 class Round:
     def __init__(self, players:list[Player], big_blind:int, small_blind:int) -> None:
@@ -19,27 +29,38 @@ class Round:
 
 
     def begin(self) -> None:
-        # current_player: Player = self.players[0]
-        # current_player.info()
+        self.blinds()
         while True:
             no_players:int = len(self.players)
-            if no_players == 1:
+            if (no_players == 1) or self.end_round():
                 break
             player = self.select_player()
             player, action = self.turn(player)
             self.turn_result(player, action)
 
 
+    def blinds(self) -> None:
+        sb_player = self.players[-2]
+        print(f"{sb_player.name} puts forward a small blind of {self.small_blind}.")
+        sb_player.chips -= self.small_blind
+        sb_player.current_bet = self.small_blind
+        bb_player = self.players[-1]
+        print(f"{bb_player.name} puts forward a small blind of {self.big_blind}.")
+        bb_player.chips -= self.big_blind
+        bb_player.current_bet = self.big_blind
+        self.pot += self.big_blind + self.small_blind
+
+
     def select_player(self):
         current_player:Player = self.players[0]
+        print(f"{current_player.name}'s turn")
         current_player.info()
         print(f"Highest bet on table : {self.highest_bet}")
+        print(f"Pot : {self.pot}")
         return current_player
 
+
     def turn(self, current_player) -> tuple[Player, int]:
-        # current_player:Player = self.players[0]
-        # current_player.info()
-        # print(f"Highest bet on table : {self.highest_bet}")
         act = input("Choose action (1:Check, 2:Call, 3:Bet, 4:Fold) \n")
         action = -1
         allowed_actions: list[int] = [1, 2, 3, 4]
@@ -54,63 +75,75 @@ class Round:
         return current_player, action
 
 
+    def end_round(self) -> bool:
+        bet_equal = all(p.current_bet == self.highest_bet for p in self.players)
+        if (len(self.log) >= len(self.players)) and bet_equal:
+            return True
+        return False
+
+
     def turn_result(self, last_player, last_action):
-        # last_player = None
-        # last_action = None
-        # if len(self.log) > 0:
-        #     prev_log = self.log[-1]
-        #     last_player = prev_log[0]
-        #     last_action = prev_log[1]
-
-        self.fold_check(last_player, last_action)
-        self.bet_check(last_player, last_action)
-
         if last_action == 1:
-            pass
-
-        if last_action in [2]:
-            last_player = self.players.pop(0)
-            self.players.append(last_player)
-
-
-    def rotate_players(self):
-        pass
-
-
-    def fold_check(self, player, action):
-        if action == 4:
-            self.players.pop(0)
-            print(f"{player.name} folded")
+            self.check_action(last_player)
+        elif last_action == 2:
+            self.call_action(last_player)
+        elif last_action == 3:
+            self.bet_action(last_player)
+        elif last_action == 4:
+            self.fold_action(last_player)
+        self.next_player()
 
 
-    def bet_check(self, player, action):
-        if action == 3:
-            bet = input(f"Choose bet (type 0 for all-in): \n")
-            # need to include betting scenarios too - or move onto call - do basic actions first
-            try:
-                bet = int(bet)
-                if bet == 0:
-                    bet = player.chips
-                if bet < 0:
-                    print("Bets can't be less than 0, try again")
-                elif bet < self.highest_bet:
-                    print("Bets must be larger than highest bet, try again")
-                elif bet > player.chips:
-                    print("Bet amount is above available chips, try again")
-                else:
-                    player.chips -= bet
-                    last_player = self.players.pop(0)
-                    self.players.append(last_player)
+    def fold_action(self, player):
+        self.players.pop(0)
+        print(f"{player.name} folded")
 
-                if bet > self.highest_bet:
-                    self.highest_bet = bet
 
-                player.current_bet = bet
+    def bet_action(self, player):
+        bet = input(f"Choose bet: \n")
+        try:
+            bet = int(bet)
+            if bet < 0:
+                print("Bets can't be less than 0, try again")
+            elif bet < (self.highest_bet - player.current_bet):
+                print(f"Bet must be larger than {self.highest_bet - player.current_bet}, try again")
+            elif bet >= player.chips:
+                print("All in!")
+                bet = player.chips
+
+            if bet > (self.highest_bet - player.current_bet):
+                self.highest_bet = bet + player.current_bet
+                player.current_bet += bet
+                player.chips -= bet
+                self.pot += bet
                 print(f"Chips remaining: {player.chips}")
-            except ValueError:
-                print(f"Integer expected, try again")
+
+        except ValueError:
+            print(f"Integer expected, try again")
 
 
-    def call_check(self):
-        pass # do this now
+    def call_action(self, player):
+        call = self.highest_bet - player.current_bet
+        if call <= 0:
+            print(f"Cannot call here.")
+        else:
+            player.current_bet += call
+            self.pot += call
+            player.chips -= call
+            print(f"{player.name} calls with {call}")
+            print(f"Chips remaining: {player.chips}")
+
+
+    def check_action(self, player):
+        if self.highest_bet != player.current_bet:
+            print("Cannot check here.")
+        else:
+            print(f"{player.name} checks.")
+
+
+    # if go one round and highest bet unchanged
+
+    def next_player(self):
+        player_done = self.players.pop(0)
+        self.players.append(player_done)
 

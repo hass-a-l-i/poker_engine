@@ -1,0 +1,16 @@
+from dataclasses import dataclass, field
+
+@dataclass(frozen=True)
+class PokerSkeleton:
+    suits: tuple[str] = ('♠', '♦', '♣', '♥')
+    ranks: tuple[str] = ('2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A')
+    big_blind: int = 50
+    small_blind: int = 100
+    start_chips: int = 1000
+    call: int = 1
+    check: int = 2
+    bet: int = 3
+    fold: int = 4
+    actions_dict = {1: "Check", 2: "Call", 3: "Bet", 4: "Fold"}
+
+

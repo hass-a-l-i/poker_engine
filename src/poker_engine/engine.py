@@ -1,55 +1,53 @@
-import poker_engine.config.global_vars as gv
-from poker_engine.models.Cards import Card
-from poker_engine.models.Deck import Deck
-from poker_engine.models.Players import Player
-from poker_engine.models.Table import Table
-from poker_engine.models.Rounds import Round
-actions_dict = gv.actions_dict
+from poker_engine.objects.Card import Card
+from poker_engine.objects.Deck import Deck
+from poker_engine.objects.Player import Player, Agent, Human
+from poker_engine.objects.Round import Round
+
+def deck_tst():
+    deck = Deck()
+    deck = deck.initialise()
+    # deck.shuffle()
+    return deck
+
+
+def card_tst(show):
+    a = Card('♠2')
+    b = Card('♦9')
+    if show:
+        print(a)
+        print(b)
+        print(a.suit)
+        print(b.suit)
+        print(a.rank)
+        print(b.rank)
+    return a, b
+
+
+def player_tst():
+    a, b = card_tst(show=False)
+    man = Human('tst_human', 1000, [])
+    robot = Agent('tst_bot', 1000, [])
+    return man, robot
+
+
+def round_tst():
+    human, bot = player_tst()
+    human2, bot2 = player_tst()
+    human2.name = 'tst_human2'
+    bot2.name = 'tst_bot2'
+    # bot.active = False
+    players = [human, bot, human2, bot2]
+    deck = deck_tst()
+    r = Round(players, deck)
+    r.initialise()
+    print(deck)
+
 
 if __name__ == "__main__":
-    print(gv.game_rules)
-    n = 3
-    buy_in = 1000
-    deck = Deck().initialise()
-    player_ls = [Player(name=f"Player {i+1}", chips=buy_in) for i in range(n)]
-    table = Table(players=player_ls, deck=deck)
-    # table.deck.shuffle()
-    table.deal()
-    table.flop()
-    table.turn()
-    table.river()
-    print(table.community_cards())
-    print(table.deck)
-    bb = 100
-    sb = 50
-    round = Round(player_ls, bb, sb)
-    round.begin()
-    # round_players = player_ls
-    # idx = 0
-    # while True:
-    #     player = round_players[idx]
-    #     player.info()
-    #     action = None
-    #     act:str = input("Action please \n")
-    #     try:
-    #         act:int = int(act)
-    #         action = actions_dict[act]
-    #         if action == "Fold":
-    #             round_players.remove(player)
-    #             print(f"{player.name} folded")
-    #             idx = 0
-    #         elif idx == len(round_players) - 1:
-    #             idx = 0
-    #         else:
-    #             idx += 1
-    #     except (ValueError, KeyError):
-    #         print("Invalid action try again.")
-    #
-    #     if len(round_players) == 1:
-    #         break
+    # main logic here - wrap in func main
+    round_tst()
 
-    # now need to do a round
-    # def actions for each player in round class
+    print(1)
 
 
 
@@ -57,32 +55,6 @@ if __name__ == "__main__":
 
 
 
-"""
-card = Card("H10")
-print(card)
-print(repr(card))
-suit = card.get_suit()
-print(suit)
-number = card.get_rank_numeric()
-print(number)
-card2 = Card("HJ")
-
-deck = Deck()
-deck.initialise()
-print(deck)
-deck.shuffle()
-print(deck)
-print(len(deck))
-
-p1 = Player()
-p1.add_card(card)
-p1.add_card(card2)
-p1.show_hand()
-print(repr(p1))
-hand_num = p1.hand_rank()
-print(hand_num)
-print(len(p1.hand))
-"""
 
 
 

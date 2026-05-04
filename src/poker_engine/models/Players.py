@@ -16,11 +16,10 @@ class Player:
     def info(self) -> None:
         current_hand = "  ".join([str(card) for card in self.hand]) if self.hand else None
         information:str = f"""
-        Name: {self.name}
         Hand: {current_hand}
         Chips: {self.chips}
         Current bet: {self.current_bet}
-        """
+        """ #
         information = inspect.cleandoc(information)
         print(information)
 
@@ -46,6 +45,17 @@ class Player:
             return sum(card.get_rank_numeric() for card in self.hand)
         return -1
 
+    # make immmutable -> tuple?
+    def get_action(self):
+        pass
+
+
+class Human(Player):
+    pass
+
+
+class Agent(Player):
+    pass
 
 
 
