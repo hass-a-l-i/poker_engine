@@ -4,12 +4,13 @@ welcome = """INSERT WELCOME"""
 
 game_rules = """
              Welcome to Texas Hold-Em' Poker!
-             -------------------------------------
+             --------------------------------------------------------------
              Rules:
              Type '1' to Check.
              Type '2' to Call.
-             Type '3' to Bet.
+             Type '3' to Bet. (Any chip amount >= player chips is all-in) 
              Type '4' to Fold.
+             --------------------------------------------------------------
              """
 
 game_rules = inspect.cleandoc(game_rules)
