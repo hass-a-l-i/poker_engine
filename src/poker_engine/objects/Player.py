@@ -1,4 +1,7 @@
+import random
 from poker_engine.models.Cards import Card
+from poker_engine.config.cfg import PokerSkeleton
+cfg = PokerSkeleton()
 
 class Player:
     def __init__(self, name:str, chips:int, hand:list[Card]=None) -> None:
@@ -52,6 +55,9 @@ class Player:
         idx = 0 if idx is None else idx
         return self.hand.pop(idx)
 
+    """inherited methods"""
+    def decision(self, legal_actions: list[int]):
+        raise NotImplementedError("Decision needed in child class")
 
 
 
@@ -59,14 +65,24 @@ class Human(Player):
     def __init__(self, name:str, chips:int, hand:list[Card]) -> None:
         super().__init__(name, chips, hand)
 
-    def decision(self):
-        pass
+
+    def decision(self, legal_actions: list[int]):
+        menu_str = ", ".join([f"{k}: {v}" for k, v in cfg.actions_dict.items() if k in legal_actions])
+        choice = input(f"Choose an action: {menu_str}" )
+        return choice
 
 
 class Agent(Player):
     def __init__(self, name: str, chips: int, hand: list[Card]) -> None:
         super().__init__(name, chips, hand)
 
+
     def decision(self, legal_actions: list[int]):
+        menu_str = ", ".join([f"{k}: {v}" for k, v in cfg.actions_dict.items() if k in legal_actions])
+        print(f"Choose an action: {menu_str}")
+        choice = random.choice(legal_actions)
+        return choice
+
+    def p(self):
         pass
 
