@@ -1,9 +1,11 @@
-from xml.etree.ElementPath import prepare_parent
-
 from poker_engine.objects.Player import Player
 from poker_engine.objects.Deck import Deck
 from poker_engine.config.cfg import PokerSkeleton
 cfg = PokerSkeleton()
+
+
+class IllegalMoveError:
+    pass
 
 
 class Round:
@@ -14,6 +16,7 @@ class Round:
         self.log:list[tuple[Player, int]] = []
         self.highest_bet = 0
         self.player_idx = 0
+        self.players_to_act = len(self.players)
 
     """helpers"""
     @property
@@ -34,25 +37,7 @@ class Round:
             if player.active:
                 ctr += 1
         return ctr
-
-    def initialise(self):
-        self.deck.shuffle()
-        print(self.deck)
-        self._deal()
-        player = self._current_player
-        print(repr(player))
-        player.active = False
-        self._next_player()
-        player = self._current_player
-        print(repr(player))
-
-
-
-
-
-
-
-    def legal_move(self, player:Player) -> list[int]:
+    def _legal_move(self, player:Player) -> list[int]:
         allowed = [cfg.fold]
         if player.current_bet == self.highest_bet:
             allowed.append(cfg.check)
@@ -64,8 +49,44 @@ class Round:
                 allowed.append(cfg.bet)
         return allowed
 
-    def fold(self):
-        pass
+    def end_round(self) -> bool:
+        cond1 = (self._count_active() == 1)
+        cond2 = (self.players_to_act == 0)
+        return cond1 or cond2
+
+
+    def resolve_action(self, player, action):
+        if action == cfg.fold:
+            player.active = False
+
+        elif action == cfg.check:
+            call = self.highest_bet - player.current_bet
+            player.current_bet += call
+            self.pot += call
+            player.chips -= call
+            print(f"{player.name} calls with {call}")
+            print(f"Chips remaining: {player.chips}")
+
+
+
+        elif action == cfg.bet:
+            pass
+
+        elif action == cfg.call:
+            pass
+
+
+    def run(self):
+        self.deck.shuffle()
+        print(self.deck)
+        self._deal()
+        while not self.end_round():
+            player = self._current_player
+            print(repr(player))
+            allowed_actions = self._legal_move(player)
+            action = player.decision(allowed_actions)
+            self.players_to_act -= 1
+            self._next_player()
 
 
 

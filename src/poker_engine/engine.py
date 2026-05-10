@@ -39,7 +39,7 @@ def round_tst():
     players = [human, bot, human2, bot2]
     deck = deck_tst()
     r = Round(players, deck)
-    r.initialise()
+    r.run()
     print(deck)
 
 
