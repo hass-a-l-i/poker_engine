@@ -1,6 +1,6 @@
 import numpy as np
 from typing import Self
-from poker_engine.models.Cards import Card
+from poker_engine.old.Cards import Card
 # import poker_engine.config.global_vars as gv
 # start_deck = gv.start_deck
 import poker_engine.config.global_vars as gv
