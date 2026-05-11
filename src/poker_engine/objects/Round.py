@@ -1,10 +1,11 @@
+from typing import Optional
 from poker_engine.objects.Player import Player
 from poker_engine.objects.Deck import Deck
 from poker_engine.config.cfg import PokerSkeleton
 cfg = PokerSkeleton()
 
 
-class IllegalMoveError:
+class IllegalMoveError(Exception):
     pass
 
 
@@ -14,7 +15,7 @@ class Round:
         self.deck = deck
         self.pot:int = 0
         self.log:list[tuple[Player, int]] = []
-        self.highest_bet = 0
+        self.highest_bet = 20
         self.player_idx = 0
         self.players_to_act = len(self.players)
 
@@ -55,25 +56,42 @@ class Round:
         return cond1 or cond2
 
 
-    def resolve_action(self, player, action):
+    def resolve_action(self, player, action, bet_amount):
         if action == cfg.fold:
             player.active = False
+            print(f"{player.name} folded")
 
         elif action == cfg.check:
+            if self.highest_bet != player.current_bet:
+                raise IllegalMoveError("Cannot check here.")
+            else:
+                print(f"{player.name} checks.")
+
+        elif action == cfg.bet:
+            if bet_amount < (self.highest_bet - player.current_bet):
+                 raise IllegalMoveError(f"Bet must be larger than {self.highest_bet - player.current_bet}, try again")
+            elif bet_amount >= player.chips:
+                print("All in!")
+                bet_amount = player.chips
+
+            if bet_amount > (self.highest_bet - player.current_bet):
+                self.highest_bet = bet_amount + player.current_bet
+                player.current_bet += bet_amount
+                player.chips -= bet_amount
+                self.pot += bet_amount
+                print(f"{player.name} bets {bet_amount}")
+                print(f"{player.name}  chips remaining: {player.chips}")
+                self.players_to_act = len([p for p in self.players if p.active])
+
+        elif action == cfg.call:
             call = self.highest_bet - player.current_bet
+            if call <= 0:
+                raise IllegalMoveError(f"Cannot call. Highest bet > player current bet.")
             player.current_bet += call
             self.pot += call
             player.chips -= call
             print(f"{player.name} calls with {call}")
-            print(f"Chips remaining: {player.chips}")
-
-
-
-        elif action == cfg.bet:
-            pass
-
-        elif action == cfg.call:
-            pass
+            print(f"{player.name}  chips remaining: {player.chips}")
 
 
     def run(self):
@@ -82,9 +100,17 @@ class Round:
         self._deal()
         while not self.end_round():
             player = self._current_player
-            print(repr(player))
+            print(f"---------- {player.name}'s turn ----------")
+            # print(repr(player))
             allowed_actions = self._legal_move(player)
-            action = player.decision(allowed_actions)
+            while True:
+                action, amount = player.decision(allowed_actions, min_bet=self.highest_bet - player.current_bet)
+                try:
+                    self.resolve_action(player, action, bet_amount=amount)
+                    break
+                except IllegalMoveError as e:
+                    print(f"--- INVALID MOVE: {e} ---")
+                    print("Please try again.")
             self.players_to_act -= 1
             self._next_player()
 
