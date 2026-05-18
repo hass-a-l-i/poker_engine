@@ -1,5 +1,5 @@
 import random
-from poker_engine.old.Cards import Card
+from poker_engine.objects.Card import Card
 from poker_engine.config.cfg import PokerSkeleton
 cfg = PokerSkeleton()
 
@@ -40,7 +40,7 @@ class Player:
     def get_hand(self) -> list[Card]:
         return self.hand
     def add_card(self, card:Card) -> None:
-        check = self.hand_len_check and self.hand_type_check
+        check = self.hand_len_check() and self.hand_type_check()
         if check:
             self.hand.append(card)
     def show_hand(self) -> str:
@@ -58,7 +58,7 @@ class Player:
     """inherited methods"""
     def decision(self,
                  legal_actions: list[int],
-                 min_bet:int):
+                 call:int):
         raise NotImplementedError("Decision needed in child class")
 
 

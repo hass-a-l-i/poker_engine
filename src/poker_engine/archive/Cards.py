@@ -1,4 +1,4 @@
-import poker_engine.config.global_vars as gv
+import poker_engine.archive.global_vars as gv
 suits = gv.suits
 ranks = gv.ranks
 rank_order = gv.rank_order
