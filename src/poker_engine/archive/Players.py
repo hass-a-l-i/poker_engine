@@ -1,5 +1,5 @@
 import inspect
-from poker_engine.old.Cards import Card
+from poker_engine.archive.Cards import Card
 
 
 class Player:

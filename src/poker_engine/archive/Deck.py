@@ -1,9 +1,8 @@
 import numpy as np
-from typing import Self
-from poker_engine.old.Cards import Card
+from poker_engine.archive.Cards import Card
 # import poker_engine.config.global_vars as gv
 # start_deck = gv.start_deck
-import poker_engine.config.global_vars as gv
+import poker_engine.archive.global_vars as gv
 suits = gv.suits
 ranks = gv.ranks
 

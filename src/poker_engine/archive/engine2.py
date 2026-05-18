@@ -1,9 +1,8 @@
-import poker_engine.config.global_vars as gv
-from poker_engine.old.Cards import Card
-from poker_engine.old.Deck import Deck
-from poker_engine.old.Players import Player
-from poker_engine.old.Table import Table
-from poker_engine.old.Rounds import Round
+import poker_engine.archive.global_vars as gv
+from poker_engine.archive.Deck import Deck
+from poker_engine.archive.Players import Player
+from poker_engine.archive.Table import Table
+from poker_engine.archive.Rounds import Round
 actions_dict = gv.actions_dict
 
 if __name__ == "__main__":

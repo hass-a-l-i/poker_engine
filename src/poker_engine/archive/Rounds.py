@@ -1,8 +1,5 @@
-from tkinter import BooleanVar
-
-from poker_engine.old.Cards import Card
-from poker_engine.old.Players import Player
-import poker_engine.config.global_vars as gv
+from poker_engine.archive.Players import Player
+import poker_engine.archive.global_vars as gv
 actions_dict = gv.actions_dict
 
 """

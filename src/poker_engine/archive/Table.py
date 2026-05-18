@@ -1,6 +1,6 @@
-from poker_engine.old.Cards import Card
-from poker_engine.old.Players import Player
-from poker_engine.old.Deck import Deck
+from poker_engine.archive.Cards import Card
+from poker_engine.archive.Players import Player
+from poker_engine.archive.Deck import Deck
 
 
 class Table:
