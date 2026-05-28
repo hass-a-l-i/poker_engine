@@ -10,6 +10,7 @@ class Player:
         self.hand = [] if hand is None else hand
         self.current_bet = 0
         self.active = True
+        self.hand_score: tuple[int, ...] | None = None
 
     def __repr__(self) -> str:
         info = (

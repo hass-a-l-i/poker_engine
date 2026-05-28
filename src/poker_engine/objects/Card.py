@@ -26,4 +26,6 @@ class Card:
     def get_rank_numeric(self) -> int:
         rank_order: dict = {str(rank): idx + 1 for idx, rank in enumerate(cfg.ranks)}
         return rank_order[self.rank]
-
+    def get_suit_numeric(self) -> int:
+        suit_order: dict = {str(suit): idx + 1 for idx, suit in enumerate(cfg.suits)}
+        return suit_order[self.suit]

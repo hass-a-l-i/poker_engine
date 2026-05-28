@@ -1,6 +1,7 @@
 from poker_engine.objects.Player import Player
 from poker_engine.objects.Illegal_Move import IllegalMoveError
 from poker_engine.config.cfg import PokerSkeleton
+
 cfg = PokerSkeleton()
 
 
@@ -27,20 +28,19 @@ class Round:
             if player.active:
                 ctr += 1
         return ctr
-    def _legal_move(self, player:Player) -> list[int]:
+    def _legal_move(self, player: Player) -> list[int]:
         allowed = [cfg.fold]
-        if player.current_bet == self.highest_bet:
+        call = self.highest_bet - player.current_bet
+        if self.highest_bet == 0:
             allowed.append(cfg.check)
             if player.chips > 0:
-                if self.highest_bet == 0:
-                    allowed.append(cfg.bet)
-                else:
-                    allowed.append(cfg.raise_)
-        elif player.current_bet < self.highest_bet:
-            diff = self.highest_bet - player.current_bet
-            if player.chips >= diff:
+                allowed.append(cfg.bet)
+        else:
+            if player.chips >= call > 0:
                 allowed.append(cfg.call)
-            if player.chips > diff:
+            if call == 0:
+                allowed.append(cfg.check)
+            if player.chips > call:
                 allowed.append(cfg.raise_)
         return allowed
 

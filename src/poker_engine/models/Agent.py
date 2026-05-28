@@ -18,6 +18,7 @@ class Agent(Player):
         # choice = random.choice(legal_actions)
         if len([i for i in legal_actions if i != 5]) == 0:
             print("no choices")
+        print(legal_actions)
         choice = random.choice([i for i in legal_actions if i != 5])
         str_choice = cfg.actions_dict[choice]
         if str_choice == "Bet":

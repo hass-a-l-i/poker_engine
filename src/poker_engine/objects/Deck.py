@@ -1,4 +1,5 @@
 import random
+import copy
 from poker_engine.objects.Card import Card
 from poker_engine.config.cfg import PokerSkeleton
 cfg = PokerSkeleton()
@@ -32,6 +33,8 @@ class Deck:
     def shuffle(self) -> None:
         random.shuffle(self.state)
         self.validate()
+    def copy(self) -> "Deck":
+        return copy.deepcopy(self)
     def remake_deck(self):
         pass
 

@@ -1,9 +1,10 @@
+from poker_engine.models.Agent import Agent
+from poker_engine.models.Human import Human
 from poker_engine.objects.Card import Card
 from poker_engine.objects.Deck import Deck
-from poker_engine.models.Human import Human
-from poker_engine.models.Agent import Agent
 from poker_engine.objects.Round import Round
 from poker_engine.objects.Table import Table
+from poker_engine.objects.HandEval import HandEval
 
 
 def deck_tst():
@@ -58,9 +59,30 @@ def table_tst():
     t.run()
 
 
+def hand_eval_rand():
+    deck = deck_tst()
+    deck.shuffle()
+    table = deck[:5]
+    cards = deck[6:8]
+    print([str(c) for c in table])
+    print([str(c) for c in cards])
+    all = cards + table
+    rank = HandEval().evaluate(all)
+    print(rank)
+
+
+def hand_eval_cases():
+    table = [Card('♠J'), Card('♥6'), Card('♠8'), Card('♠6'), Card('♦10')]
+    cards = [Card('♥9'), Card('♠7')]
+    _all = cards + table
+    rank = HandEval().return_rank(_all)
+    print(rank)
+
+
 if __name__ == "__main__":
     # main logic here - wrap in func main
-    table_tst()
+    hand_eval_cases()
+
 
 
 

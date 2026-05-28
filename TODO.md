@@ -5,6 +5,7 @@ edge cases.
 
 Rules left:
 
+- [ ] resolving hands class
 - [ ] all-in handling
 - [ ] side pots
 - [ ] split pots

@@ -1,83 +1,138 @@
-# Architecture Notes
+[//]: # (# Architecture Notes)
 
-These notes describe the intended shape of the poker engine while it is still
-being refactored.
+[//]: # ()
+[//]: # (These notes describe the intended shape of the poker engine while it is still)
 
-## Main Responsibilities
+[//]: # (being refactored.)
 
-`Card`
+[//]: # ()
+[//]: # (## Main Responsibilities)
 
-- Represents one playing card.
-- Validates suit and rank.
+[//]: # ()
+[//]: # (`Card`)
 
-`Deck`
+[//]: # ()
+[//]: # (- Represents one playing card.)
 
-- Owns the list of remaining cards.
-- Creates a standard 52-card deck.
-- Shuffles and deals cards.
+[//]: # (- Validates suit and rank.)
 
-`Player`
+[//]: # ()
+[//]: # (`Deck`)
 
-- Owns player state: name, chips, hand, current bet, active/folded status.
-- Provides shared behaviour for human and bot players.
+[//]: # ()
+[//]: # (- Owns the list of remaining cards.)
 
-`Human` / `Agent`
+[//]: # (- Creates a standard 52-card deck.)
 
-- Choose actions.
-- Should return an `(action, amount)` tuple.
-- Should not directly mutate the round state.
+[//]: # (- Shuffles and deals cards.)
 
-`Round`
+[//]: # ()
+[//]: # (`Player`)
 
-- Runs one betting round.
-- Tracks whose turn it is.
-- Tracks the current highest bet.
-- Tracks how many players still need to act.
-- Applies fold, check, call, and bet actions.
-- Should not evaluate poker hands.
+[//]: # ()
+[//]: # (- Owns player state: name, chips, hand, current bet, active/folded status.)
 
-`Table` / future `Game`
+[//]: # (- Provides shared behaviour for human and bot players.)
 
-- Owns full-hand flow.
-- Deals community cards.
-- Runs betting rounds for preflop, flop, turn, and river.
-- Detects whether the hand ends by folds or by showdown.
-- Awards the pot.
+[//]: # ()
+[//]: # (`Human` / `Agent`)
 
-`HandEvaluator`
+[//]: # ()
+[//]: # (- Choose actions.)
 
-- Future class or module.
-- Takes a player's hole cards plus community cards.
-- Returns a comparable hand strength.
-- Decides showdown winners.
+[//]: # (- Should return an `&#40;action, amount&#41;` tuple.)
 
-## Important State Distinctions
+[//]: # (- Should not directly mutate the round state.)
 
-`active`
+[//]: # ()
+[//]: # (`Round`)
 
-- Means the player is still in the hand.
-- Becomes `False` when a player folds.
+[//]: # ()
+[//]: # (- Runs one betting round.)
 
-`players_to_act`
+[//]: # (- Tracks whose turn it is.)
 
-- Means the number of active players who still need to respond in the current
-  betting round.
-- Decreases after fold, check, or call.
-- Resets after a bet or raise because other players must respond.
+[//]: # (- Tracks the current highest bet.)
 
-These two pieces of state are related but not interchangeable.
+[//]: # (- Tracks how many players still need to act.)
 
-## Current Simplification
+[//]: # (- Applies fold, check, call, and bet actions.)
 
-The current prototype should ignore advanced poker edge cases until the base
-loop works reliably.
+[//]: # (- Should not evaluate poker hands.)
 
-Postponed:
+[//]: # ()
+[//]: # (`Table` / future `Game`)
 
-- all-in behaviour
-- side pots
-- split pots
-- multiple hands with rotating blinds
-- strong bot strategy
+[//]: # ()
+[//]: # (- Owns full-hand flow.)
 
-This keeps the next milestone small: one complete hand from deal to winner.
+[//]: # (- Deals community cards.)
+
+[//]: # (- Runs betting rounds for preflop, flop, turn, and river.)
+
+[//]: # (- Detects whether the hand ends by folds or by showdown.)
+
+[//]: # (- Awards the pot.)
+
+[//]: # ()
+[//]: # (`HandEvaluator`)
+
+[//]: # ()
+[//]: # (- Future class or module.)
+
+[//]: # (- Takes a player's hole cards plus community cards.)
+
+[//]: # (- Returns a comparable hand strength.)
+
+[//]: # (- Decides showdown winners.)
+
+[//]: # ()
+[//]: # (## Important State Distinctions)
+
+[//]: # ()
+[//]: # (`active`)
+
+[//]: # ()
+[//]: # (- Means the player is still in the hand.)
+
+[//]: # (- Becomes `False` when a player folds.)
+
+[//]: # ()
+[//]: # (`players_to_act`)
+
+[//]: # ()
+[//]: # (- Means the number of active players who still need to respond in the current)
+
+[//]: # (  betting round.)
+
+[//]: # (- Decreases after fold, check, or call.)
+
+[//]: # (- Resets after a bet or raise because other players must respond.)
+
+[//]: # ()
+[//]: # (These two pieces of state are related but not interchangeable.)
+
+[//]: # ()
+[//]: # (## Current Simplification)
+
+[//]: # ()
+[//]: # (The current prototype should ignore advanced poker edge cases until the base)
+
+[//]: # (loop works reliably.)
+
+[//]: # ()
+[//]: # (Postponed:)
+
+[//]: # ()
+[//]: # (- all-in behaviour)
+
+[//]: # (- side pots)
+
+[//]: # (- split pots)
+
+[//]: # (- multiple hands with rotating blinds)
+
+[//]: # (- strong bot strategy)
+
+[//]: # ()
+[//]: # (This keeps the next milestone small: one complete hand from deal to winner.)
