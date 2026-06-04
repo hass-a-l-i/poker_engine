@@ -5,14 +5,14 @@ from poker_engine.objects.Deck import Deck
 from poker_engine.objects.Round import Round
 from poker_engine.objects.Table import Table
 from poker_engine.objects.HandEval import HandEval
-
+from poker_engine.config.cfg import PokerSkeleton as cfg
+import logging
 
 def deck_tst():
     deck = Deck()
     deck = deck.initialise()
-    # deck.shuffle()
+    deck.shuffle()
     return deck
-
 
 def card_tst(show):
     a = Card('♠2')
@@ -27,13 +27,14 @@ def card_tst(show):
     return a, b
 
 
+
 def player_tst():
     a, b = card_tst(show=False)
     man = Human('tst_human', 1000, [])
     robot = Agent('tst_bot', 1000, [])
     return man, robot
 
-#### TEST TABLE
+
 def round_tst():
     human, bot = player_tst()
     _ , bot2 = player_tst()
@@ -41,8 +42,7 @@ def round_tst():
     bot2.name = 'tst_bot2'
     bot3.name = 'tst_bot3'
     players = [human, bot, bot2, bot3]
-    deck = deck_tst()
-    r = Round(players, deck)
+    r = Round(players)
     r.run()
 
 
@@ -50,38 +50,37 @@ def table_tst():
     human, bot = player_tst()
     _, bot2 = player_tst()
     _, bot3 = player_tst()
+    _, bot4 = player_tst()
     bot2.name = 'tst_bot2'
     bot3.name = 'tst_bot3'
-    players = [human, bot, bot2, bot3]
+    bot4.name = 'tst_bot4'
+    players = [bot4, bot, bot2, bot3]
     rnd = Round(players)
-    deck = deck_tst()
+    deck = Deck()
+    deck = deck.initialise()
     t = Table(players=players, rnd=rnd, deck=deck)
     t.run()
 
 
-def hand_eval_rand():
+def hand_eval():
     deck = deck_tst()
     deck.shuffle()
     table = deck[:5]
     cards = deck[6:8]
-    print([str(c) for c in table])
-    print([str(c) for c in cards])
     all = cards + table
-    rank = HandEval().evaluate(all)
-    print(rank)
-
-
-def hand_eval_cases():
-    table = [Card('♠J'), Card('♥6'), Card('♠8'), Card('♠6'), Card('♦10')]
-    cards = [Card('♥9'), Card('♠7')]
-    _all = cards + table
-    rank = HandEval().return_rank(_all)
-    print(rank)
+    rank = HandEval().return_rank(all)
+    return table, cards, rank
 
 
 if __name__ == "__main__":
-    # main logic here - wrap in func main
-    hand_eval_cases()
+    logging.basicConfig(level=logging.DEBUG,
+                        format='%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
+                        handlers=[
+                            logging.FileHandler(filename="logs/poker_engine.log", mode='w'),
+                            logging.StreamHandler()
+                        ]
+                        )
+    table_tst()
 
 
 

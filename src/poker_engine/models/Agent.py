@@ -13,19 +13,16 @@ class Agent(Player):
                  legal_actions: list[int],
                  call:int,
                  ) -> tuple[int, int]:
-        menu_str = ", ".join([f"{k}: {v}" for k, v in cfg.actions_dict.items() if k in legal_actions])
-        # print(f"Choose an action: {menu_str}")
-        # choice = random.choice(legal_actions)
         if len([i for i in legal_actions if i != 5]) == 0:
             print("no choices")
-        print(legal_actions)
         choice = random.choice([i for i in legal_actions if i != 5])
         str_choice = cfg.actions_dict[choice]
         if str_choice == "Bet":
-            # amount = random.randint(min_bet, min_bet+10)
-            amount = random.randint(1, self.chips)
+            # amount = random.randint(1, self.chips)
+            amount = random.randint(1, 10)
             return choice, amount
         if str_choice == "Raise":
-            amount = random.randint(1, self.chips - call)
+            # amount = random.randint(1, self.chips - call)
+            amount = random.randint(1, 10)
             return choice, amount
         return choice, 0

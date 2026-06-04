@@ -1,9 +1,10 @@
 from poker_engine.objects.Player import Player
 from poker_engine.objects.Illegal_Move import IllegalMoveError
 from poker_engine.config.cfg import PokerSkeleton
+import logging
 
 cfg = PokerSkeleton()
-
+logger = logging.getLogger(__name__)
 
 class Round:
     def __init__(self, players:list[Player]) -> None:
@@ -55,40 +56,46 @@ class Round:
     def resolve_action(self, player, action, bet_amount):
         if action == cfg.fold:
             player.active = False
-            print(f"{player.name} folded")
+            logging.info(f"{player.name} folded")
             self.players_to_act -= 1
         elif action == cfg.check:
             if self.highest_bet != player.current_bet:
+                logging.error("Cannot check here.")
                 raise IllegalMoveError("Cannot check here.")
             else:
-                print(f"{player.name} checks.")
+                logging.info(f"{player.name} checks.")
                 self.players_to_act -= 1
         elif action == cfg.call:
             call = self.highest_bet - player.current_bet
             if call <= 0:
+                logging.error("Cannot call. Highest bet > player current bet.")
                 raise IllegalMoveError(f"Cannot call. Highest bet > player current bet.")
             player.current_bet += call
             self.pot += call
             player.chips -= call
-            print(f"{player.name} calls with {call}.")
+            logging.info(f"{player.name} calls with {call}. Chips remaining : {player.chips}")
             self.players_to_act -= 1
         elif action == cfg.bet:
             if bet_amount <= 0:
+                logging.error(f"Bet must be >= 0.")
                 raise IllegalMoveError(f"Bet must be >= 0.")
             if bet_amount > player.chips:
+                logging.error(f"Bet amount cannot be more than chips available ({player.chips}).")
                 raise IllegalMoveError(f"Bet amount cannot be more than chips available ({player.chips}).")
             self.highest_bet = bet_amount + player.current_bet
             player.current_bet += bet_amount
             player.chips -= bet_amount
             self.pot += bet_amount
             self.players_to_act = self._count_active() - 1
-            print(f"{player.name} bets {bet_amount}.")
+            logging.info(f"{player.name} bets {bet_amount}. Chips remaining : {player.chips}")
         elif action == cfg.raise_:
             raise_amount = bet_amount
             if raise_amount <= 0:
+                logging.error(f"Raise must be >= 0.")
                 raise IllegalMoveError(f"Raise must be >= 0.")
             call_amount = self.highest_bet - player.current_bet
             if call_amount < 0:
+                logging.error(f"Cannot raise on own bet.")
                 raise IllegalMoveError(f"Cannot raise on own bet.")
             stake = raise_amount + call_amount
             self.highest_bet = stake + player.current_bet
@@ -96,7 +103,7 @@ class Round:
             player.chips -= stake
             self.pot += stake
             self.players_to_act = self._count_active() - 1
-            print(f"{player.name} calls with {call_amount} and raises by {raise_amount}.")
+            logging.info(f"{player.name} calls with {call_amount} and raises by {raise_amount}. Chips remaining : {player.chips}")
 
 
     def run(self):

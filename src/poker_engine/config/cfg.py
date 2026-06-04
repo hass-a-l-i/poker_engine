@@ -41,13 +41,13 @@ class PokerSkeleton:
     hands_dict = {
         "Royal Flush": 1,
         "Straight Flush": 2,
-        "Four of a Kind": 3,######
-        "Full House": 4,######
-        "Flush": 5,######
+        "Four of a Kind": 3,
+        "Full House": 4,
+        "Flush": 5,
         "Straight": 6,
-        "Three of a Kind": 7,######
-        "Two Pair": 8,######
-        "Pair": 9,######
+        "Three of a Kind": 7,
+        "Two Pair": 8,
+        "Pair": 9,
         "High Card": 10,
     }
 

@@ -1,6 +1,6 @@
-import random
 from poker_engine.objects.Card import Card
 from poker_engine.config.cfg import PokerSkeleton
+
 cfg = PokerSkeleton()
 
 class Player:
