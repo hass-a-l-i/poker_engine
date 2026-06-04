@@ -1,0 +1,38 @@
+2026-06-04 11:11:22,111 - root - INFO - [Deck.py:25] - Deck Initialised
+2026-06-04 11:11:22,111 - root - INFO - [Deck.py:39] - Deck Shuffled
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:90] - tst_bot4 bets 3. Chips remaining : 997
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:106] - tst_bot calls with 3 and raises by 5. Chips remaining : 992
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:76] - tst_bot2 calls with 8. Chips remaining : 992
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:106] - tst_bot3 calls with 8 and raises by 1. Chips remaining : 991
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:76] - tst_bot4 calls with 6. Chips remaining : 991
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:76] - tst_bot calls with 1. Chips remaining : 991
+2026-06-04 11:11:22,111 - root - INFO - [Round.py:76] - tst_bot2 calls with 1. Chips remaining : 991
+2026-06-04 11:11:22,112 - root - INFO - [Table.py:42] - Flop : |♦10| |♥10| |♥J|
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:90] - tst_bot3 bets 3. Chips remaining : 988
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot4 calls with 3. Chips remaining : 988
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:106] - tst_bot calls with 3 and raises by 7. Chips remaining : 981
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot2 calls with 10. Chips remaining : 981
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:106] - tst_bot3 calls with 7 and raises by 2. Chips remaining : 979
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot4 calls with 9. Chips remaining : 979
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot calls with 2. Chips remaining : 979
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot2 calls with 2. Chips remaining : 979
+2026-06-04 11:11:22,112 - root - INFO - [Table.py:42] - River : |♦10| |♥10| |♥J| |♠5|
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:90] - tst_bot3 bets 4. Chips remaining : 975
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:106] - tst_bot4 calls with 4 and raises by 5. Chips remaining : 970
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot calls with 9. Chips remaining : 970
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot2 calls with 9. Chips remaining : 970
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:76] - tst_bot3 calls with 5. Chips remaining : 970
+2026-06-04 11:11:22,112 - root - INFO - [Table.py:42] - Turn : |♦10| |♥10| |♥J| |♠5| |♦Q|
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:66] - tst_bot4 checks.
+2026-06-04 11:11:22,112 - root - INFO - [Round.py:90] - tst_bot bets 2. Chips remaining : 968
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:106] - tst_bot2 calls with 2 and raises by 7. Chips remaining : 961
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:106] - tst_bot3 calls with 9 and raises by 10. Chips remaining : 951
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:76] - tst_bot4 calls with 19. Chips remaining : 951
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:106] - tst_bot calls with 17 and raises by 6. Chips remaining : 945
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:76] - tst_bot2 calls with 16. Chips remaining : 945
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:106] - tst_bot3 calls with 6 and raises by 9. Chips remaining : 936
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:106] - tst_bot4 calls with 15 and raises by 9. Chips remaining : 927
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:76] - tst_bot calls with 18. Chips remaining : 927
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:76] - tst_bot2 calls with 18. Chips remaining : 927
+2026-06-04 11:11:22,113 - root - INFO - [Round.py:76] - tst_bot3 calls with 9. Chips remaining : 927
+2026-06-04 11:11:22,113 - poker_engine.objects.Table - INFO - [Table.py:61] - [('tst_bot4', 8), ('tst_bot', 8), ('tst_bot2', 8), ('tst_bot3', 8)]
