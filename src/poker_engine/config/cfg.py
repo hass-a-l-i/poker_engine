@@ -39,16 +39,16 @@ class PokerSkeleton:
         5: "Fold"
     }
     hands_dict = {
-        "Royal Flush": 1,
-        "Straight Flush": 2,
-        "Four of a Kind": 3,
-        "Full House": 4,
-        "Flush": 5,
-        "Straight": 6,
-        "Three of a Kind": 7,
-        "Two Pair": 8,
-        "Pair": 9,
-        "High Card": 10,
+        "Royal Flush": 10,
+        "Straight Flush": 9,
+        "Four of a Kind": 8,
+        "Full House": 7,
+        "Flush": 6,
+        "Straight": 5,
+        "Three of a Kind": 4,
+        "Two Pair": 3,
+        "Pair": 2,
+        "High Card": 1,
     }
 
 

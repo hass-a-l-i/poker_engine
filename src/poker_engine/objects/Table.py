@@ -55,7 +55,12 @@ class Table:
         self.init_round(round_name="Turn", no_cards=1)
         for p in self.players:
             all_cards = self.cards + p.hand
-            rank = HandEval().return_rank(all_cards)
+            rank = HandEval(all_cards).return_rank()
+            five = HandEval(all_cards).top_five()
+            p.score = (rank,) + five
             self.ranked_players.append((p, rank))
-        self.ranked_players.sort(key=lambda item: item[1])
+        self.ranked_players.sort(key=lambda item: item[1], reverse=True)
         logger.info([(p.name, rank) for (p, rank) in self.ranked_players])
+        ls = [(p.name, p.score) for p in self.players]
+        ls.sort(key=lambda item: item[1], reverse=True)
+        logger.info([(name, score) for name, score in ls])

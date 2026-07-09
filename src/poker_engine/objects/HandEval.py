@@ -1,5 +1,4 @@
 from .Card import Card
-import random
 from poker_engine.config.cfg import PokerSkeleton as cfg
 from typing import Any
 
@@ -7,8 +6,8 @@ from typing import Any
 
 
 class HandEval:
-    def __init__(self):
-        self.eval_tuple = ()
+    def __init__(self, all_cards:list[Card]) -> None:
+        self.all_cards = all_cards
 
     @staticmethod
     def _counter(ranks: list[Any]) -> dict[int, int]:
@@ -24,11 +23,6 @@ class HandEval:
                 counts[current] = ctr
             current = r
         return counts
-
-    # @staticmethod
-    # def _suit_counter(ranks: list[Any]) -> dict[int, int]:
-    #     suits_dict = {i: hand for i, hand in enumerate(hands_list, start=1)}
-    #     counts:dict[int, int] = {}
 
     @staticmethod
     def is_pair(repeat_vals: list[int]) -> bool:
@@ -85,15 +79,14 @@ class HandEval:
             cand = r
         return False
 
-    def return_rank(self, table_cards: list[Card]):
+    def return_rank(self):
         """
         RANK HAND FIRST
         """
-        # print([(str(c)) for c in table_cards])
-        ord_ranks = [c.get_rank_numeric() for c in table_cards]
+        ord_ranks = [c.get_rank_numeric() for c in self.all_cards]
         ord_ranks.sort()
         cnt_ranks = self._counter(ord_ranks)
-        ord_suits = [c.get_suit_numeric() for c in table_cards]
+        ord_suits = [c.get_suit_numeric() for c in self.all_cards]
         ord_suits.sort()
         cnt_suits = self._counter(ord_suits)
         rank_repeats = list(cnt_ranks.values())
@@ -118,6 +111,15 @@ class HandEval:
             return cfg.hands_dict["Pair"]
         else:
             return cfg.hands_dict["High Card"]
+
+
+    def top_five(self):
+        ord_ranks = [c.get_rank_numeric() for c in self.all_cards]
+        ord_ranks.sort(reverse=True)
+        print(ord_ranks)
+        high = ord_ranks[0:5]
+        high = tuple(high)
+        return high
 
     # score tuple returned to all players then find max?
     def score_tuple(self):

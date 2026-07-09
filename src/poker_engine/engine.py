@@ -68,8 +68,17 @@ def hand_eval():
     table = deck[:5]
     cards = deck[6:8]
     all = cards + table
-    rank = HandEval().return_rank(all)
+    rank = HandEval(all).return_rank()
     return table, cards, rank
+
+def hand_eval2():
+    deck = deck_tst()
+    deck.shuffle()
+    table = deck[:5]
+    cards = deck[6:8]
+    all = cards + table
+    rank = HandEval(all).top_five()
+    print(rank)
 
 
 if __name__ == "__main__":
@@ -81,6 +90,7 @@ if __name__ == "__main__":
                         ]
                         )
     table_tst()
+    # hand_eval2()
 
 
 

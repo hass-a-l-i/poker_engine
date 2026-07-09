@@ -119,8 +119,6 @@ class Round:
                 except IllegalMoveError as e:
                     print(f"########## ILLEGAL MOVE: {e} Please try again ########## ")
             self._next_player()
-        # for p in self.players:
-        #     print(f"{p.name} : {p.chips}")
 
         # reset
         self.players_to_act = len([p for p in self.players if p.active])
