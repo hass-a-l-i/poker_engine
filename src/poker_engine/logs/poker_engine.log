@@ -1,43 +1,61 @@
-2026-07-09 20:48:26,442 - root - INFO - [Deck.py:25] - Deck Initialised
-2026-07-09 20:48:26,442 - root - INFO - [Deck.py:39] - Deck Shuffled
-2026-07-09 20:48:26,442 - root - INFO - [Round.py:66] - tst_bot4 checks.
-2026-07-09 20:48:26,442 - root - INFO - [Round.py:66] - tst_bot checks.
-2026-07-09 20:48:26,442 - root - INFO - [Round.py:90] - tst_bot2 bets 7. Chips remaining : 993
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot3 calls with 7 and raises by 2. Chips remaining : 991
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot4 calls with 9. Chips remaining : 991
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot calls with 9. Chips remaining : 991
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot2 calls with 2 and raises by 8. Chips remaining : 983
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot3 calls with 8. Chips remaining : 983
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot4 calls with 8 and raises by 1. Chips remaining : 982
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot calls with 9. Chips remaining : 982
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot2 calls with 1 and raises by 6. Chips remaining : 976
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot3 calls with 7 and raises by 7. Chips remaining : 969
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot4 calls with 13. Chips remaining : 969
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot calls with 13. Chips remaining : 969
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot2 calls with 7 and raises by 6. Chips remaining : 963
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot3 calls with 6. Chips remaining : 963
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:106] - tst_bot4 calls with 6 and raises by 9. Chips remaining : 954
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot calls with 15. Chips remaining : 954
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot2 calls with 9. Chips remaining : 954
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:76] - tst_bot3 calls with 9. Chips remaining : 954
-2026-07-09 20:48:26,443 - root - INFO - [Table.py:42] - Flop : |♠K| |♦6| |♣6|
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:66] - tst_bot4 checks.
-2026-07-09 20:48:26,443 - root - INFO - [Round.py:66] - tst_bot checks.
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:66] - tst_bot2 checks.
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:66] - tst_bot3 checks.
-2026-07-09 20:48:26,444 - root - INFO - [Table.py:42] - River : |♠K| |♦6| |♣6| |♥Q|
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:90] - tst_bot4 bets 7. Chips remaining : 947
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:76] - tst_bot calls with 7. Chips remaining : 947
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:76] - tst_bot2 calls with 7. Chips remaining : 947
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:76] - tst_bot3 calls with 7. Chips remaining : 947
-2026-07-09 20:48:26,444 - root - INFO - [Table.py:42] - Turn : |♠K| |♦6| |♣6| |♥Q| |♥A|
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:66] - tst_bot4 checks.
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:66] - tst_bot checks.
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:66] - tst_bot2 checks.
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:90] - tst_bot3 bets 6. Chips remaining : 941
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:106] - tst_bot4 calls with 6 and raises by 9. Chips remaining : 932
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:76] - tst_bot calls with 15. Chips remaining : 932
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:76] - tst_bot2 calls with 15. Chips remaining : 932
-2026-07-09 20:48:26,444 - root - INFO - [Round.py:76] - tst_bot3 calls with 9. Chips remaining : 932
-2026-07-09 20:48:26,445 - poker_engine.objects.Table - INFO - [Table.py:63] - [('tst_bot4', 4), ('tst_bot', 2), ('tst_bot2', 2), ('tst_bot3', 2)]
-2026-07-09 20:48:26,445 - poker_engine.objects.Table - INFO - [Table.py:66] - [('tst_bot4', (4, 13, 12, 11, 5, 5)), ('tst_bot', (2, 13, 12, 11, 9, 7)), ('tst_bot2', (2, 13, 12, 11, 8, 5)), ('tst_bot3', (2, 13, 12, 11, 7, 5))]
+2026-07-12 22:40:17,671 - root - INFO - [Deck.py:25] - Deck Initialised
+2026-07-12 22:40:17,671 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,671 - root - INFO - [Table.py:47] - Flop : |♠J| |♣6| |♥2|
+2026-07-12 22:40:17,671 - root - INFO - [Table.py:47] - River : |♠J| |♣6| |♥2| |♦2|
+2026-07-12 22:40:17,671 - root - INFO - [Table.py:47] - Turn : |♠J| |♣6| |♥2| |♦2| |♣7|
+2026-07-12 22:40:17,671 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot] are winners
+2026-07-12 22:40:17,671 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot', 1105), ('tst_bot2', 965), ('tst_bot3', 965), ('tst_bot4', 965)]
+2026-07-12 22:40:17,671 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,671 - root - INFO - [Table.py:47] - Flop : |♠Q| |♠10| |♦2|
+2026-07-12 22:40:17,672 - root - INFO - [Table.py:47] - River : |♠Q| |♠10| |♦2| |♠6|
+2026-07-12 22:40:17,672 - root - INFO - [Table.py:47] - Turn : |♠Q| |♠10| |♦2| |♠6| |♥A|
+2026-07-12 22:40:17,672 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot] are winners
+2026-07-12 22:40:17,672 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot', 1105), ('tst_bot3', 965), ('tst_bot2', 965), ('tst_bot4', 965)]
+2026-07-12 22:40:17,672 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,672 - root - INFO - [Table.py:47] - Flop : |♣9| |♦3| |♥5|
+2026-07-12 22:40:17,672 - root - INFO - [Table.py:47] - River : |♣9| |♦3| |♥5| |♣Q|
+2026-07-12 22:40:17,672 - root - INFO - [Table.py:47] - Turn : |♣9| |♦3| |♥5| |♣Q| |♥Q|
+2026-07-12 22:40:17,672 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot] are winners
+2026-07-12 22:40:17,672 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot', 1312), ('tst_bot3', 896), ('tst_bot2', 896), ('tst_bot4', 896)]
+2026-07-12 22:40:17,672 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,673 - root - INFO - [Table.py:47] - Flop : |♥6| |♠5| |♣Q|
+2026-07-12 22:40:17,673 - root - INFO - [Table.py:47] - River : |♥6| |♠5| |♣Q| |♥8|
+2026-07-12 22:40:17,673 - root - INFO - [Table.py:47] - Turn : |♥6| |♠5| |♣Q| |♥8| |♥10|
+2026-07-12 22:40:17,673 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot3] are winners
+2026-07-12 22:40:17,673 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot3', 983), ('tst_bot2', 867), ('tst_bot4', 867), ('tst_bot', 1283)]
+2026-07-12 22:40:17,673 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,673 - root - INFO - [Table.py:47] - Flop : |♣K| |♦7| |♦2|
+2026-07-12 22:40:17,673 - root - INFO - [Table.py:47] - River : |♣K| |♦7| |♦2| |♦A|
+2026-07-12 22:40:17,673 - root - INFO - [Table.py:47] - Turn : |♣K| |♦7| |♦2| |♦A| |♠10|
+2026-07-12 22:40:17,673 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot4] are winners
+2026-07-12 22:40:17,673 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot4', 897), ('tst_bot2', 857), ('tst_bot', 1273), ('tst_bot3', 973)]
+2026-07-12 22:40:17,673 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,674 - root - INFO - [Table.py:47] - Flop : |♥6| |♥5| |♥J|
+2026-07-12 22:40:17,674 - root - INFO - [Table.py:47] - River : |♥6| |♥5| |♥J| |♥8|
+2026-07-12 22:40:17,674 - root - INFO - [Table.py:47] - Turn : |♥6| |♥5| |♥J| |♥8| |♦Q|
+2026-07-12 22:40:17,674 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot2] are winners
+2026-07-12 22:40:17,674 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot2', 866), ('tst_bot3', 970), ('tst_bot4', 894), ('tst_bot', 1270)]
+2026-07-12 22:40:17,674 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,674 - root - INFO - [Table.py:47] - Flop : |♥9| |♥5| |♠Q|
+2026-07-12 22:40:17,674 - root - INFO - [Table.py:47] - River : |♥9| |♥5| |♠Q| |♠A|
+2026-07-12 22:40:17,674 - root - INFO - [Table.py:47] - Turn : |♥9| |♥5| |♠Q| |♠A| |♦6|
+2026-07-12 22:40:17,674 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot] are winners
+2026-07-12 22:40:17,674 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot', 1387), ('tst_bot3', 931), ('tst_bot4', 855), ('tst_bot2', 827)]
+2026-07-12 22:40:17,675 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,675 - root - INFO - [Table.py:47] - Flop : |♣J| |♥3| |♥10|
+2026-07-12 22:40:17,675 - root - INFO - [Table.py:47] - River : |♣J| |♥3| |♥10| |♣A|
+2026-07-12 22:40:17,675 - root - INFO - [Table.py:47] - Turn : |♣J| |♥3| |♥10| |♣A| |♠Q|
+2026-07-12 22:40:17,675 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot] are winners
+2026-07-12 22:40:17,675 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot', 1387), ('tst_bot2', 827), ('tst_bot4', 855), ('tst_bot3', 931)]
+2026-07-12 22:40:17,675 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,675 - root - INFO - [Table.py:47] - Flop : |♦3| |♠3| |♥J|
+2026-07-12 22:40:17,675 - root - INFO - [Table.py:47] - River : |♦3| |♠3| |♥J| |♥A|
+2026-07-12 22:40:17,675 - root - INFO - [Table.py:47] - Turn : |♦3| |♠3| |♥J| |♥A| |♠J|
+2026-07-12 22:40:17,675 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot3] are winners
+2026-07-12 22:40:17,676 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot3', 976), ('tst_bot', 1372), ('tst_bot4', 840), ('tst_bot2', 812)]
+2026-07-12 22:40:17,676 - root - INFO - [Deck.py:41] - Deck Shuffled
+2026-07-12 22:40:17,676 - root - INFO - [Table.py:47] - Flop : |♣9| |♥Q| |♦3|
+2026-07-12 22:40:17,676 - root - INFO - [Table.py:47] - River : |♣9| |♥Q| |♦3| |♣2|
+2026-07-12 22:40:17,676 - root - INFO - [Table.py:47] - Turn : |♣9| |♥Q| |♦3| |♣2| |♣10|
+2026-07-12 22:40:17,676 - poker_engine.objects.Table - INFO - [Table.py:60] - [tst_bot4] are winners
+2026-07-12 22:40:17,676 - poker_engine.objects.Table - INFO - [Table.py:67] - Chips : [('tst_bot4', 840), ('tst_bot3', 976), ('tst_bot', 1372), ('tst_bot2', 812)]

@@ -12,7 +12,10 @@ class Player:
         self.active:bool = True
         self.score: tuple[int, ...] | None = None
 
-    def __repr__(self) -> str:
+    def __repr__(self):
+        return self.name
+
+    def info(self) -> str:
         info = (
             "-----------------------------\n"
             f"Type : Player \n"

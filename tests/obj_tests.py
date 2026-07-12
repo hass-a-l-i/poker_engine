@@ -1,4 +1,4 @@
-from poker_engine.models.Agent import Agent
+from poker_engine.models.RandomAgent import RandomAgent
 from poker_engine.models.Human import Human
 from poker_engine.objects.Card import Card
 from poker_engine.objects.Deck import Deck

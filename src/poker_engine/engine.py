@@ -1,11 +1,10 @@
-from poker_engine.models.Agent import Agent
+from poker_engine.models.RandomAgent import RandomAgent
 from poker_engine.models.Human import Human
 from poker_engine.objects.Card import Card
 from poker_engine.objects.Deck import Deck
 from poker_engine.objects.Round import Round
 from poker_engine.objects.Table import Table
 from poker_engine.objects.HandEval import HandEval
-from poker_engine.config.cfg import PokerSkeleton as cfg
 import logging
 
 def deck_tst():
@@ -31,7 +30,7 @@ def card_tst(show):
 def player_tst():
     a, b = card_tst(show=False)
     man = Human('tst_human', 1000, [])
-    robot = Agent('tst_bot', 1000, [])
+    robot = RandomAgent('tst_bot', 1000, [])
     return man, robot
 
 
@@ -46,7 +45,7 @@ def round_tst():
     r.run()
 
 
-def table_tst():
+def tst():
     human, bot = player_tst()
     _, bot2 = player_tst()
     _, bot3 = player_tst()
@@ -59,39 +58,23 @@ def table_tst():
     deck = Deck()
     deck = deck.initialise()
     t = Table(players=players, rnd=rnd, deck=deck)
-    t.run()
+    for _ in range(10):
+        t.run()
 
-
-def hand_eval():
-    deck = deck_tst()
-    deck.shuffle()
-    table = deck[:5]
-    cards = deck[6:8]
-    all = cards + table
-    rank = HandEval(all).return_rank()
-    return table, cards, rank
-
-def hand_eval2():
-    deck = deck_tst()
-    deck.shuffle()
-    table = deck[:5]
-    cards = deck[6:8]
-    all = cards + table
-    rank = HandEval(all).top_five()
-    print(rank)
+def show_logs(show):
+    if show:
+        logging.basicConfig(level=logging.INFO,
+                            format='%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
+                            handlers=[
+                                logging.FileHandler(filename="logs/poker_engine.log", mode='w'),
+                                logging.StreamHandler()
+                            ]
+                            )
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.DEBUG,
-                        format='%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
-                        handlers=[
-                            logging.FileHandler(filename="logs/poker_engine.log", mode='w'),
-                            logging.StreamHandler()
-                        ]
-                        )
-    table_tst()
-    # hand_eval2()
-
+    show_logs(True)
+    tst()
 
 
 

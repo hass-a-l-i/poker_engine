@@ -31,8 +31,10 @@ class Deck:
     def validate(self) -> None:
         no_cards:int = len(self.state)
         if not all(isinstance(card, Card) for card in self.state):
+            logger.error("Deck does not contain all card objects")
             raise TypeError("Deck does not contain all card objects")
         if no_cards != 52:
+            logger.error("Deck does not contain 52 cards")
             raise ValueError("Deck does not contain 52 cards")
     def shuffle(self) -> None:
         random.shuffle(self.state)
@@ -40,8 +42,9 @@ class Deck:
         self.validate()
     def copy(self) -> "Deck":
         return copy.deepcopy(self)
-    def remake_deck(self):
-        pass
+    def add(self, cards:list[Card]) -> None:
+        for card in cards:
+            self.state.append(card)
 
 
 

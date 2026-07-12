@@ -2,12 +2,11 @@ from .Card import Card
 from poker_engine.config.cfg import PokerSkeleton as cfg
 from typing import Any
 
-# cfg = PokerSkeleton()
-
 
 class HandEval:
     def __init__(self, all_cards:list[Card]) -> None:
         self.all_cards = all_cards
+        self.ord_ranks = [c.get_rank_numeric() for c in all_cards]
 
     @staticmethod
     def _counter(ranks: list[Any]) -> dict[int, int]:
@@ -79,21 +78,20 @@ class HandEval:
             cand = r
         return False
 
-    def return_rank(self):
+    def _return_ranking(self):
         """
         RANK HAND FIRST
         """
-        ord_ranks = [c.get_rank_numeric() for c in self.all_cards]
-        ord_ranks.sort()
-        cnt_ranks = self._counter(ord_ranks)
+        self.ord_ranks.sort()
+        cnt_ranks = self._counter(self.ord_ranks)
         ord_suits = [c.get_suit_numeric() for c in self.all_cards]
         ord_suits.sort()
         cnt_suits = self._counter(ord_suits)
         rank_repeats = list(cnt_ranks.values())
         suit_repeats = list(cnt_suits.values())
-        if {9, 10, 11, 12, 13}.issubset(set(ord_ranks)) and self.is_flush(suit_repeats):
+        if {9, 10, 11, 12, 13}.issubset(set(self.ord_ranks)) and self.is_flush(suit_repeats):
             return cfg.hands_dict["Royal Flush"]
-        elif self.is_straight(ord_ranks) and self.is_flush(suit_repeats):
+        elif self.is_straight(self.ord_ranks) and self.is_flush(suit_repeats):
             return cfg.hands_dict["Straight Flush"]
         elif self.is_four_kind(rank_repeats):
             return cfg.hands_dict["Four of a Kind"]
@@ -101,7 +99,7 @@ class HandEval:
             return cfg.hands_dict["Full House"]
         elif self.is_flush(suit_repeats):
             return cfg.hands_dict["Flush"]
-        elif self.is_straight(ord_ranks):
+        elif self.is_straight(self.ord_ranks):
             return cfg.hands_dict["Straight"]
         elif self.is_three_kind(rank_repeats):
             return cfg.hands_dict["Three of a Kind"]
@@ -113,17 +111,25 @@ class HandEval:
             return cfg.hands_dict["High Card"]
 
 
-    def top_five(self):
-        ord_ranks = [c.get_rank_numeric() for c in self.all_cards]
-        ord_ranks.sort(reverse=True)
-        print(ord_ranks)
-        high = ord_ranks[0:5]
-        high = tuple(high)
+    def _top_five(self, hand_rank):
+        if (hand_rank == cfg.hands_dict["Straight"]
+            or hand_rank == cfg.hands_dict["Straight Flush"]):
+            replaced = [0 if x == 13 else x for x in self.ord_ranks]
+            replaced.sort(reverse=True)
+            high = replaced[0:5]
+            high = tuple(high)
+        else:
+            self.ord_ranks.sort(reverse=True)
+            high = self.ord_ranks[0:5]
+            high = tuple(high)
         return high
 
-    # score tuple returned to all players then find max?
+
     def score_tuple(self):
-        pass
+        ranking = self._return_ranking()
+        five = self._top_five(ranking)
+        score = (ranking,) + five
+        return score
 
 
-    # if draw then do tuple of rest of cards compare
+

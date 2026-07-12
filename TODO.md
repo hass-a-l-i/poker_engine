@@ -5,10 +5,10 @@ edge cases.
 
 Rules left:
 
-- [ ] resolving hands class
+- [X] resolving hands class
 - [ ] all-in handling
 - [ ] side pots
 - [ ] split pots
 - [ ] dealer/button rotation
-- [ ] blinds across multiple han
+- [ ] blinds 
 - [ ] bot strategy

@@ -10,10 +10,10 @@ class Round:
     def __init__(self, players:list[Player]) -> None:
         self.players = players
         self.pot:int = 0
-        self.log:list[tuple[Player, int]] = []
         self.highest_bet = 0
         self.player_idx = 0
         self.players_to_act = len(self.players)
+        self.burned = []
 
     """helpers"""
     @property
@@ -56,14 +56,14 @@ class Round:
     def resolve_action(self, player, action, bet_amount):
         if action == cfg.fold:
             player.active = False
-            logging.info(f"{player.name} folded")
+            logging.debug(f"{player.name} folded")
             self.players_to_act -= 1
         elif action == cfg.check:
             if self.highest_bet != player.current_bet:
                 logging.error("Cannot check here.")
                 raise IllegalMoveError("Cannot check here.")
             else:
-                logging.info(f"{player.name} checks.")
+                logging.debug(f"{player.name} checks.")
                 self.players_to_act -= 1
         elif action == cfg.call:
             call = self.highest_bet - player.current_bet
@@ -73,7 +73,7 @@ class Round:
             player.current_bet += call
             self.pot += call
             player.chips -= call
-            logging.info(f"{player.name} calls with {call}. Chips remaining : {player.chips}")
+            logging.debug(f"{player.name} calls with {call}. Chips remaining : {player.chips}")
             self.players_to_act -= 1
         elif action == cfg.bet:
             if bet_amount <= 0:
@@ -87,7 +87,7 @@ class Round:
             player.chips -= bet_amount
             self.pot += bet_amount
             self.players_to_act = self._count_active() - 1
-            logging.info(f"{player.name} bets {bet_amount}. Chips remaining : {player.chips}")
+            logging.debug(f"{player.name} bets {bet_amount}. Chips remaining : {player.chips}")
         elif action == cfg.raise_:
             raise_amount = bet_amount
             if raise_amount <= 0:
@@ -103,13 +103,14 @@ class Round:
             player.chips -= stake
             self.pot += stake
             self.players_to_act = self._count_active() - 1
-            logging.info(f"{player.name} calls with {call_amount} and raises by {raise_amount}. Chips remaining : {player.chips}")
+            logging.debug(f"{player.name} calls with {call_amount} and raises by {raise_amount}. Chips remaining : {player.chips}")
 
+    def return_burned(self):
+        return self.burned
 
     def run(self):
         while not self.end_round():
             player = self._current_player
-            # self.information(player)
             allowed_actions = self._legal_move(player)
             while True:
                 try:
@@ -120,11 +121,18 @@ class Round:
                     print(f"########## ILLEGAL MOVE: {e} Please try again ########## ")
             self._next_player()
 
-        # reset
+    def reset(self):
         self.players_to_act = len([p for p in self.players if p.active])
         self.highest_bet = 0
+        self.player_idx = 0
+        self.pot = 0
         for player in self.players:
             player.current_bet = 0
+            for card in player.hand:
+                self.burned.append(card)
+            player.hand = []
+        self.burned = []
+
 
 
 
