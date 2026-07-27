@@ -1,5 +1,6 @@
 import random
 from poker_engine.objects.Card import Card
+from poker_engine.objects.Illegal_Move import IllegalMoveError
 from poker_engine.objects.Player import Player
 from poker_engine.config.cfg import PokerSkeleton
 cfg = PokerSkeleton()
@@ -13,9 +14,10 @@ class RandomAgent(Player):
                  legal_actions: list[int],
                  call:int,
                  ) -> tuple[int, int]:
-        if len([i for i in legal_actions if i != 5]) == 0:
-            print("no choices")
-        choice = random.choice([i for i in legal_actions if i != 5]) ### ENSURE NO FOLD
+        filt = [i for i in legal_actions if i != 5]
+        choice = random.choice(filt) ### ENSURE NO FOLD
+        if len(filt) == 0:
+            raise IllegalMoveError("No choices")
         str_choice = cfg.actions_dict[choice]
         if str_choice == "Bet":
             # amount = random.randint(1, self.chips)
@@ -23,6 +25,6 @@ class RandomAgent(Player):
             return choice, amount
         if str_choice == "Raise":
             # amount = random.randint(1, self.chips - call)
-            amount = random.randint(1, 20)
+            amount = random.randint(1, self.chips - call)
             return choice, amount
         return choice, 0

@@ -11,6 +11,8 @@ class Player:
         self.current_bet = 0
         self.active:bool = True
         self.score: tuple[int, ...] | None = None
+        self.all_in:bool = False
+        self.total_stake = 0
 
     def __repr__(self):
         return self.name

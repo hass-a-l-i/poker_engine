@@ -22,7 +22,7 @@ class Deck:
         cards = [Card(f"{s}{r}") for s in cfg.suits for r in cfg.ranks]
         deck_obj = cls(cards)
         deck_obj.validate()
-        logging.info("Deck Initialised")
+        logging.debug("Deck Initialised")
         return deck_obj
 
     def pop(self, idx=None) -> Card:
@@ -38,7 +38,7 @@ class Deck:
             raise ValueError("Deck does not contain 52 cards")
     def shuffle(self) -> None:
         random.shuffle(self.state)
-        logging.info("Deck Shuffled")
+        logging.debug("Deck Shuffled")
         self.validate()
     def copy(self) -> "Deck":
         return copy.deepcopy(self)

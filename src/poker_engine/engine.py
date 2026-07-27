@@ -6,6 +6,7 @@ from poker_engine.objects.Round import Round
 from poker_engine.objects.Table import Table
 from poker_engine.objects.HandEval import HandEval
 import logging
+import sys
 
 def deck_tst():
     deck = Deck()
@@ -58,15 +59,19 @@ def tst():
     deck = Deck()
     deck = deck.initialise()
     t = Table(players=players, rnd=rnd, deck=deck)
-    for _ in range(10):
-        t.run()
+    t.run()
+
 
 def show_logs(show):
     if show:
-        logging.basicConfig(level=logging.INFO,
+        for stream in (sys.stdout, sys.stderr):
+            if hasattr(stream, "reconfigure"):
+                stream.reconfigure(encoding="utf-8", errors="replace")
+
+        logging.basicConfig(level=logging.DEBUG,
                             format='%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
                             handlers=[
-                                logging.FileHandler(filename="logs/poker_engine.log", mode='w'),
+                                logging.FileHandler(filename="logs/poker_engine.log", mode='w', encoding="utf-8"),
                                 logging.StreamHandler()
                             ]
                             )

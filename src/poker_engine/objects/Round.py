@@ -10,7 +10,7 @@ class Round:
     def __init__(self, players:list[Player]) -> None:
         self.players = players
         self.pot:int = 0
-        self.highest_bet = 0
+        self.highest_bet = cfg.big_blind
         self.player_idx = 0
         self.players_to_act = len(self.players)
         self.burned = []
@@ -105,10 +105,32 @@ class Round:
             self.players_to_act = self._count_active() - 1
             logging.debug(f"{player.name} calls with {call_amount} and raises by {raise_amount}. Chips remaining : {player.chips}")
 
+        if not player.all_in:
+            if player.chips == 0:
+                player.all_in = True
+                logger.info(f"{player.name} is all-in!")
     def return_burned(self):
         return self.burned
+    def side_pot(self):
+        pass
+    def reset_betting(self):
+        self.players_to_act = len([p for p in self.players if p.active])
+        self.highest_bet = 0
+        self.player_idx = 0
+        for player in self.players:
+            player.current_bet = 0
+    def reset_round(self):
+        self.reset_betting()
+        self.pot = 0
+        for player in self.players:
+            for card in player.hand:
+                self.burned.append(card)
+            player.hand = []
+            player.active = True
+        self.burned = []
 
     def run(self):
+        logger.debug("Begin betting round")
         while not self.end_round():
             player = self._current_player
             allowed_actions = self._legal_move(player)
@@ -120,18 +142,9 @@ class Round:
                 except IllegalMoveError as e:
                     print(f"########## ILLEGAL MOVE: {e} Please try again ########## ")
             self._next_player()
+        self.reset_betting()
+        logger.debug("End betting round")
 
-    def reset(self):
-        self.players_to_act = len([p for p in self.players if p.active])
-        self.highest_bet = 0
-        self.player_idx = 0
-        self.pot = 0
-        for player in self.players:
-            player.current_bet = 0
-            for card in player.hand:
-                self.burned.append(card)
-            player.hand = []
-        self.burned = []
 
 
 
