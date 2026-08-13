@@ -12,7 +12,7 @@ class Player:
         self.active:bool = True
         self.score: tuple[int, ...] | None = None
         self.all_in:bool = False
-        self.total_stake = 0
+        self.total_stake:int = 0
 
     def __repr__(self):
         return self.name
