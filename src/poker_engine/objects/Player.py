@@ -11,6 +11,7 @@ class Player:
         self.current_bet = 0
         self.active:bool = True
         self.score: tuple[int, ...] | None = None
+        self.rank:str | None = None
         self.all_in:bool = False
         self.total_stake:int = 0
 

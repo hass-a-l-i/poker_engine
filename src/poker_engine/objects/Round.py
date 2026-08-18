@@ -129,7 +129,7 @@ class Round:
             player.active = True
         self.burned = []
 
-    def run(self):
+    def run(self) -> None:
         logger.debug("Begin betting round")
         while not self.end_round():
             player = self._current_player
@@ -140,7 +140,7 @@ class Round:
                     self.resolve_action(player, action, bet_amount=amount)
                     break
                 except IllegalMoveError as e:
-                    print(f"########## ILLEGAL MOVE: {e} Please try again ########## ")
+                    logger.error(f"ILLEGAL MOVE: {e} Please try again")
             self._next_player()
         self.reset_betting()
         logger.debug("End betting round")

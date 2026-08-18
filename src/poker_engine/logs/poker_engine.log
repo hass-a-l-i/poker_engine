@@ -1,52 +1,108 @@
-2026-07-27 23:29:30,986 - root - DEBUG - [Deck.py:25] - Deck Initialised
-2026-07-27 23:29:30,986 - root - DEBUG - [Deck.py:41] - Deck Shuffled
-2026-07-27 23:29:30,986 - poker_engine.objects.Table - INFO - [Table.py:31] - Cards Dealt.
-2026-07-27 23:29:30,986 - poker_engine.objects.Round - DEBUG - [Round.py:133] - Begin betting round
-2026-07-27 23:29:30,986 - root - DEBUG - [Round.py:76] - tst_bot4 calls with 100. Chips remaining : 900
-2026-07-27 23:29:30,986 - root - DEBUG - [Round.py:76] - tst_bot calls with 100. Chips remaining : 900
-2026-07-27 23:29:30,987 - root - DEBUG - [Round.py:106] - tst_bot2 calls with 100 and raises by 478. Chips remaining : 422
-2026-07-27 23:29:30,987 - root - DEBUG - [Round.py:106] - tst_bot3 calls with 578 and raises by 213. Chips remaining : 209
-2026-07-27 23:29:30,987 - root - DEBUG - [Round.py:76] - tst_bot4 calls with 691. Chips remaining : 209
-2026-07-27 23:29:30,987 - root - DEBUG - [Round.py:76] - tst_bot calls with 691. Chips remaining : 209
-2026-07-27 23:29:30,987 - root - DEBUG - [Round.py:76] - tst_bot2 calls with 213. Chips remaining : 209
-2026-07-27 23:29:30,987 - poker_engine.objects.Round - DEBUG - [Round.py:146] - End betting round
-2026-07-27 23:29:30,987 - root - INFO - [Table.py:49] - Flop : |♥4| |♠6| |♠8|
-2026-07-27 23:29:30,987 - poker_engine.objects.Round - DEBUG - [Round.py:133] - Begin betting round
-2026-07-27 23:29:30,987 - root - DEBUG - [Round.py:66] - tst_bot4 checks.
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:90] - tst_bot bets 3. Chips remaining : 206
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:106] - tst_bot2 calls with 3 and raises by 50. Chips remaining : 156
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:106] - tst_bot3 calls with 53 and raises by 107. Chips remaining : 49
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:76] - tst_bot4 calls with 160. Chips remaining : 49
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:76] - tst_bot calls with 157. Chips remaining : 49
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:76] - tst_bot2 calls with 107. Chips remaining : 49
-2026-07-27 23:29:30,988 - poker_engine.objects.Round - DEBUG - [Round.py:146] - End betting round
-2026-07-27 23:29:30,988 - root - INFO - [Table.py:49] - Turn : |♥4| |♠6| |♠8| |♥2|
-2026-07-27 23:29:30,988 - poker_engine.objects.Round - DEBUG - [Round.py:133] - Begin betting round
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:90] - tst_bot4 bets 5. Chips remaining : 44
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:76] - tst_bot calls with 5. Chips remaining : 44
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:106] - tst_bot2 calls with 5 and raises by 25. Chips remaining : 19
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:76] - tst_bot3 calls with 30. Chips remaining : 19
-2026-07-27 23:29:30,988 - root - DEBUG - [Round.py:76] - tst_bot4 calls with 25. Chips remaining : 19
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:106] - tst_bot calls with 25 and raises by 12. Chips remaining : 7
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:76] - tst_bot2 calls with 12. Chips remaining : 7
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:76] - tst_bot3 calls with 12. Chips remaining : 7
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:76] - tst_bot4 calls with 12. Chips remaining : 7
-2026-07-27 23:29:30,989 - poker_engine.objects.Round - DEBUG - [Round.py:146] - End betting round
-2026-07-27 23:29:30,989 - root - INFO - [Table.py:49] - River : |♥4| |♠6| |♠8| |♥2| |♠5|
-2026-07-27 23:29:30,989 - poker_engine.objects.Round - DEBUG - [Round.py:133] - Begin betting round
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:66] - tst_bot4 checks.
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:66] - tst_bot checks.
-2026-07-27 23:29:30,989 - root - ERROR - [Round.py:83] - Bet amount cannot be more than chips available (7).
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:66] - tst_bot2 checks.
-2026-07-27 23:29:30,989 - root - ERROR - [Round.py:83] - Bet amount cannot be more than chips available (7).
-2026-07-27 23:29:30,989 - root - DEBUG - [Round.py:66] - tst_bot3 checks.
-2026-07-27 23:29:30,991 - poker_engine.objects.Round - DEBUG - [Round.py:146] - End betting round
-2026-07-27 23:29:30,991 - poker_engine.objects.Table - DEBUG - [Table.py:59] - [('tst_bot4', (5, 11, 7, 5, 4, 3)), ('tst_bot3', (5, 8, 7, 6, 5, 4)), ('tst_bot', (2, 9, 7, 5, 5, 4)), ('tst_bot2', (2, 8, 7, 5, 4, 4))]
-2026-07-27 23:29:30,991 - poker_engine.objects.Table - INFO - [Table.py:63] - Winner(s) : tst_bot4
-2026-07-27 23:29:30,991 - poker_engine.objects.Table - DEBUG - [Table.py:67] - Distributed winnings : 3972
-2026-07-27 23:29:30,992 - poker_engine.objects.Table - DEBUG - [Table.py:74] - Chips : [('tst_bot4', 3979), ('tst_bot3', 7), ('tst_bot', 7), ('tst_bot2', 7)]
-2026-07-27 23:29:30,992 - poker_engine.objects.Table - DEBUG - [Table.py:76] - Total chips : 4000
-2026-07-27 23:29:30,992 - root - DEBUG - [Deck.py:41] - Deck Shuffled
-2026-07-27 23:29:30,992 - poker_engine.objects.Table - INFO - [Table.py:31] - Cards Dealt.
-2026-07-27 23:29:30,992 - poker_engine.objects.Round - DEBUG - [Round.py:133] - Begin betting round
-2026-07-27 23:29:30,992 - root - DEBUG - [Round.py:90] - tst_bot4 bets 13. Chips remaining : 3966
+2026-08-17 22:45:27,376 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,376 - root - INFO - [Table.py:46] - Flop : |♦6| |♠K| |♥3|
+2026-08-17 22:45:27,376 - root - INFO - [Table.py:46] - Turn : |♦6| |♠K| |♥3| |♦7|
+2026-08-17 22:45:27,376 - root - INFO - [Table.py:46] - River : |♦6| |♠K| |♥3| |♦7| |♦A|
+2026-08-17 22:45:27,377 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 3454
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:46] - Flop : |♣4| |♣3| |♦J|
+2026-08-17 22:45:27,377 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 2608
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,377 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 93
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,377 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 3166
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,377 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 736
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,377 - root - INFO - [Table.py:46] - Flop : |♥J| |♣J| |♠4|
+2026-08-17 22:45:27,378 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 334
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:46] - Flop : |♦9| |♥9| |♦Q|
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:46] - Turn : |♦9| |♥9| |♦Q| |♥J|
+2026-08-17 22:45:27,378 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 41
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:46] - Flop : |♣3| |♣9| |♣2|
+2026-08-17 22:45:27,378 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 1565
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,378 - poker_engine.objects.Round - INFO - [Round.py:111] - tst_bot4 is all-in!
+2026-08-17 22:45:27,378 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot4 due to all players folding. Winnings : 1
+2026-08-17 22:45:27,378 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,378 - poker_engine.objects.Round - INFO - [Round.py:111] - tst_bot4 is all-in!
+2026-08-17 22:45:27,379 - poker_engine.objects.Table - INFO - [Table.py:87] - tst_bot4 has no chips - they are out!
+2026-08-17 22:45:27,379 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 3071
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:46] - Flop : |♣7| |♦2| |♣2|
+2026-08-17 22:45:27,379 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 163
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:46] - Flop : |♣5| |♣7| |♦K|
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:46] - Turn : |♣5| |♣7| |♦K| |♦4|
+2026-08-17 22:45:27,379 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 2392
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,379 - root - INFO - [Table.py:46] - Flop : |♥Q| |♣2| |♦8|
+2026-08-17 22:45:27,380 - root - INFO - [Table.py:46] - Turn : |♥Q| |♣2| |♦8| |♦2|
+2026-08-17 22:45:27,380 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 1476
+2026-08-17 22:45:27,381 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,381 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 2968
+2026-08-17 22:45:27,381 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,381 - root - INFO - [Table.py:46] - Flop : |♦6| |♦9| |♥8|
+2026-08-17 22:45:27,381 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 1991
+2026-08-17 22:45:27,381 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,381 - root - INFO - [Table.py:46] - Flop : |♠2| |♦10| |♣Q|
+2026-08-17 22:45:27,381 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 361
+2026-08-17 22:45:27,381 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:46] - Flop : |♠K| |♣Q| |♠2|
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:46] - Turn : |♠K| |♣Q| |♠2| |♣4|
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:46] - River : |♠K| |♣Q| |♠2| |♣4| |♠A|
+2026-08-17 22:45:27,382 - poker_engine.objects.Table - INFO - [Table.py:59] - Winner(s) : tst_bot3 with Straight. Winnings : 294
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,382 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 979
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:46] - Flop : |♠9| |♦A| |♦Q|
+2026-08-17 22:45:27,382 - root - INFO - [Table.py:46] - Turn : |♠9| |♦A| |♦Q| |♠6|
+2026-08-17 22:45:27,383 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 69
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,383 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 1276
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,383 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot due to all players folding. Winnings : 58
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:46] - Flop : |♠5| |♦5| |♠8|
+2026-08-17 22:45:27,383 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 144
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:46] - Flop : |♦7| |♦2| |♣2|
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:46] - Turn : |♦7| |♦2| |♣2| |♣A|
+2026-08-17 22:45:27,383 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 22
+2026-08-17 22:45:27,383 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - Flop : |♣10| |♠8| |♥A|
+2026-08-17 22:45:27,384 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 24
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - Flop : |♣9| |♠8| |♥6|
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - Turn : |♣9| |♠8| |♥6| |♦3|
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - River : |♣9| |♠8| |♥6| |♦3| |♥K|
+2026-08-17 22:45:27,384 - poker_engine.objects.Table - INFO - [Table.py:59] - Winner(s) : tst_bot3 with Pair. Winnings : 4
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - Flop : |♥J| |♠3| |♣5|
+2026-08-17 22:45:27,384 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 49
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - Flop : |♥7| |♦3| |♥3|
+2026-08-17 22:45:27,384 - root - INFO - [Table.py:46] - Turn : |♥7| |♦3| |♥3| |♣K|
+2026-08-17 22:45:27,385 - poker_engine.objects.Round - INFO - [Round.py:111] - tst_bot is all-in!
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:46] - River : |♥7| |♦3| |♥3| |♣K| |♦J|
+2026-08-17 22:45:27,385 - poker_engine.objects.Table - INFO - [Table.py:59] - Winner(s) : tst_bot3 with Two Pair. Winnings : 4
+2026-08-17 22:45:27,385 - poker_engine.objects.Table - INFO - [Table.py:87] - tst_bot has no chips - they are out!
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,385 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 2463
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:46] - Flop : |♣8| |♣Q| |♠J|
+2026-08-17 22:45:27,385 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot2 due to all players folding. Winnings : 0
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:46] - Flop : |♣A| |♥Q| |♥6|
+2026-08-17 22:45:27,385 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 0
+2026-08-17 22:45:27,385 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,386 - root - INFO - [Table.py:46] - Flop : |♥9| |♥5| |♠10|
+2026-08-17 22:45:27,386 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 74
+2026-08-17 22:45:27,386 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,386 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 1240
+2026-08-17 22:45:27,386 - root - INFO - [Table.py:42] - Pre-Flop
+2026-08-17 22:45:27,386 - poker_engine.objects.Round - INFO - [Round.py:111] - tst_bot2 is all-in!
+2026-08-17 22:45:27,386 - poker_engine.objects.Table - INFO - [Table.py:87] - tst_bot2 has no chips - they are out!
+2026-08-17 22:45:27,386 - poker_engine.objects.Table - INFO - [Table.py:79] - Winner(s) : tst_bot3 due to all players folding. Winnings : 720
+2026-08-17 22:45:27,386 - poker_engine.objects.Table - INFO - [Table.py:107] - All players out. tst_bot3 wins!

@@ -79,9 +79,6 @@ class HandEval:
         return False
 
     def _return_ranking(self):
-        """
-        RANK HAND FIRST
-        """
         self.ord_ranks.sort()
         cnt_ranks = self._counter(self.ord_ranks)
         ord_suits = [c.get_suit_numeric() for c in self.all_cards]
@@ -90,25 +87,25 @@ class HandEval:
         rank_repeats = list(cnt_ranks.values())
         suit_repeats = list(cnt_suits.values())
         if {9, 10, 11, 12, 13}.issubset(set(self.ord_ranks)) and self.is_flush(suit_repeats):
-            return cfg.hands_dict["Royal Flush"]
+            return cfg.hands_dict["Royal Flush"], "Royal Flush"
         elif self.is_straight(self.ord_ranks) and self.is_flush(suit_repeats):
-            return cfg.hands_dict["Straight Flush"]
+            return cfg.hands_dict["Straight Flush"], "Straight Flush"
         elif self.is_four_kind(rank_repeats):
-            return cfg.hands_dict["Four of a Kind"]
+            return cfg.hands_dict["Four of a Kind"], "Four of a Kind"
         elif self.is_full_house(rank_repeats):
-            return cfg.hands_dict["Full House"]
+            return cfg.hands_dict["Full House"], "Full House"
         elif self.is_flush(suit_repeats):
-            return cfg.hands_dict["Flush"]
+            return cfg.hands_dict["Flush"], "Flush"
         elif self.is_straight(self.ord_ranks):
-            return cfg.hands_dict["Straight"]
+            return cfg.hands_dict["Straight"], "Straight"
         elif self.is_three_kind(rank_repeats):
-            return cfg.hands_dict["Three of a Kind"]
+            return cfg.hands_dict["Three of a Kind"], "Three of a Kind"
         elif self.is_two_pair(rank_repeats):
-            return cfg.hands_dict["Two Pair"]
+            return cfg.hands_dict["Two Pair"], "Two Pair"
         elif self.is_pair(rank_repeats):
-            return cfg.hands_dict["Pair"]
+            return cfg.hands_dict["Pair"], "Pair"
         else:
-            return cfg.hands_dict["High Card"]
+            return cfg.hands_dict["High Card"], "High Card"
 
 
     def _top_five(self, hand_rank):
@@ -126,10 +123,10 @@ class HandEval:
 
 
     def score_tuple(self):
-        ranking = self._return_ranking()
-        five = self._top_five(ranking)
-        score = (ranking,) + five
-        return score
+        num_ranking, str_ranking = self._return_ranking()
+        five = self._top_five(num_ranking)
+        score = (num_ranking,) + five
+        return score, str_ranking
 
 
 

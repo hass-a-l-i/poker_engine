@@ -68,7 +68,7 @@ def show_logs(show):
             if hasattr(stream, "reconfigure"):
                 stream.reconfigure(encoding="utf-8", errors="replace")
 
-        logging.basicConfig(level=logging.DEBUG,
+        logging.basicConfig(level=logging.INFO,
                             format='%(asctime)s - %(name)s - %(levelname)s - [%(filename)s:%(lineno)d] - %(message)s',
                             handlers=[
                                 logging.FileHandler(filename="logs/poker_engine.log", mode='w', encoding="utf-8"),

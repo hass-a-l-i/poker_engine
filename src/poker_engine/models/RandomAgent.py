@@ -14,14 +14,15 @@ class RandomAgent(Player):
                  legal_actions: list[int],
                  call:int,
                  ) -> tuple[int, int]:
-        filt = [i for i in legal_actions if i != 5]
+        # filt = [i for i in legal_actions if i != 5]
+        filt = legal_actions
         choice = random.choice(filt) ### ENSURE NO FOLD
         if len(filt) == 0:
             raise IllegalMoveError("No choices")
         str_choice = cfg.actions_dict[choice]
         if str_choice == "Bet":
-            # amount = random.randint(1, self.chips)
-            amount = random.randint(1, 20) ### CAPPING BETMAX FOR TESTS
+            amount = random.randint(1, self.chips)
+            # amount = random.randint(1, 20) ### CAPPING BETMAX FOR TESTS
             return choice, amount
         if str_choice == "Raise":
             # amount = random.randint(1, self.chips - call)
