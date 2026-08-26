@@ -9,8 +9,11 @@ version = "0.1.0"
 authors = [{name = "Hassan"}]
 readme = "README.md"
 requires-python = ">=3.10"
-description = "Texas hold-em ppker engine"
+description = "Texas hold-em poker engine"
 dependencies = ["numpy"]
+
+[project.scripts]
+poker-engine = "poker_engine.engine:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
