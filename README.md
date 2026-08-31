@@ -371,6 +371,18 @@ After editing code, run:
 .\.venv\Scripts\python.exe -m unittest
 ```
 
+## TODO
+
+- Publish the package on PyPI so it can be installed with `pip install poker-engine`.
+- Add package metadata needed for a public release, including license, project URLs, classifiers, and PyPI-friendly installation docs.
+- Consider moving heavy integrations into optional dependency groups, such as `poker-engine[quantum]`, `poker-engine[ml]`, and `poker-engine[dev]`.
+- Add a Monte Carlo agent that estimates win probability by simulating possible opponent hands and board runouts.
+- Add ML-ready model extensions, including feature extraction, model loading, and illegal-action masking.
+- Add a shared decision-context object so advanced agents can inspect community cards, pot size, street, active players, stack pressure, and table position.
+- Add a multiple-run simulation argument for non-human games, for example `--runs 1000`.
+- Return and print aggregate simulation results showing how many games each input model type won, such as random-agent wins, quantum-random-agent wins, and future Monte Carlo or ML agent wins.
+- Add tests for multi-run simulations, including total win-count invariants and mixed-agent model reporting.
+
 ## Requirements
 
 - Python 3.10 or newer
