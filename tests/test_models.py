@@ -13,6 +13,7 @@ if str(src) not in sys.path:
 
 from poker_engine.config.cfg import PokerSkeleton
 from poker_engine.models.Human import Human
+from poker_engine.models.QuantumRandomAgent import QuantumRandomAgent
 from poker_engine.models.RandomAgent import RandomAgent
 from poker_engine.objects.Illegal_Move import GameQuit, IllegalMoveError
 
@@ -130,13 +131,83 @@ class RandomAgentModelTests(unittest.TestCase):
         self.assertEqual(action, cfg.bet)
         self.assertEqual(amount, 40)
 
-    def test_random_agent_raise_uses_remaining_chips_after_call(self):
+    def test_random_agent_raise_uses_random_amount_after_call(self):
         player = RandomAgent("bot", 1000, [])
 
-        action, amount = player.decision([cfg.raise_], call=250)
+        with patch("random.randint", return_value=300) as randint:
+            action, amount = player.decision([cfg.raise_], call=250)
 
         self.assertEqual(action, cfg.raise_)
-        self.assertEqual(amount, 750)
+        self.assertEqual(amount, 300)
+        randint.assert_called_once_with(cfg.big_blind, 750)
+
+    def test_random_agent_raise_uses_round_min_raise(self):
+        player = RandomAgent("bot", 1000, [])
+
+        with patch("random.randint", return_value=500) as randint:
+            self.assertEqual(player.decision([cfg.raise_], call=250, min_raise=400), (cfg.raise_, 500))
+
+        randint.assert_called_once_with(400, 750)
+
+
+class QuantumRandomAgentModelTests(unittest.TestCase):
+    def test_quantum_random_agent_rejects_empty_legal_actions(self):
+        player = QuantumRandomAgent("quantum_bot", 1000, [])
+
+        with self.assertRaises(IllegalMoveError):
+            player.decision([], call=0)
+
+    def test_quantum_random_agent_maps_quantum_index_to_legal_action(self):
+        player = QuantumRandomAgent("quantum_bot", 1000, [])
+
+        with patch.object(QuantumRandomAgent, "quantum_randint", return_value=1):
+            self.assertEqual(player.decision([cfg.check, cfg.fold], call=0), (cfg.fold, 0))
+
+    def test_quantum_random_agent_bet_uses_quantum_amount(self):
+        player = QuantumRandomAgent("quantum_bot", 1000, [])
+
+        with patch.object(QuantumRandomAgent, "quantum_randint", side_effect=[0, 250]) as quantum_randint:
+            self.assertEqual(player.decision([cfg.bet], call=0), (cfg.bet, 250))
+
+        self.assertEqual(quantum_randint.call_args_list[0].args, (0, 0))
+        self.assertEqual(quantum_randint.call_args_list[1].args, (cfg.big_blind, 1000))
+
+    def test_quantum_random_agent_short_stack_bet_can_be_all_in_below_big_blind(self):
+        player = QuantumRandomAgent("quantum_bot", 40, [])
+
+        with patch.object(QuantumRandomAgent, "quantum_randint", side_effect=[0, 40]):
+            self.assertEqual(player.decision([cfg.bet], call=0), (cfg.bet, 40))
+
+    def test_quantum_random_agent_raise_uses_quantum_amount_when_full_raise_available(self):
+        player = QuantumRandomAgent("quantum_bot", 1000, [])
+
+        with patch.object(QuantumRandomAgent, "quantum_randint", side_effect=[0, 300]) as quantum_randint:
+            self.assertEqual(player.decision([cfg.raise_], call=250), (cfg.raise_, 300))
+
+        self.assertEqual(quantum_randint.call_args_list[1].args, (cfg.big_blind, 750))
+
+    def test_quantum_random_agent_raise_uses_round_min_raise(self):
+        player = QuantumRandomAgent("quantum_bot", 1000, [])
+
+        with patch.object(QuantumRandomAgent, "quantum_randint", side_effect=[0, 500]) as quantum_randint:
+            self.assertEqual(player.decision([cfg.raise_], call=250, min_raise=400), (cfg.raise_, 500))
+
+        self.assertEqual(quantum_randint.call_args_list[1].args, (400, 750))
+
+    def test_quantum_random_agent_short_all_in_raise_uses_remaining_chips(self):
+        player = QuantumRandomAgent("quantum_bot", 150, [])
+
+        with patch.object(QuantumRandomAgent, "quantum_randint", return_value=0) as quantum_randint:
+            self.assertEqual(player.decision([cfg.raise_], call=100), (cfg.raise_, 50))
+
+        quantum_randint.assert_called_once_with(0, 0)
+
+    def test_quantum_randint_rejects_invalid_range(self):
+        with self.assertRaises(ValueError):
+            QuantumRandomAgent.quantum_randint(5, 4)
+
+    def test_quantum_randint_returns_fixed_value_without_quantum_backend(self):
+        self.assertEqual(QuantumRandomAgent.quantum_randint(7, 7), 7)
 
 
 if __name__ == "__main__":

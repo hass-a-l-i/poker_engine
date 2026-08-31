@@ -14,6 +14,7 @@ from poker_engine.objects.Card import Card
 from poker_engine.objects.Deck import Deck
 from poker_engine.objects.Player import Player
 from poker_engine.models.Human import Human
+from poker_engine.models.QuantumRandomAgent import QuantumRandomAgent
 from poker_engine.models.RandomAgent import RandomAgent
 
 
@@ -37,12 +38,25 @@ class EngineEntrypointTests(unittest.TestCase):
         self.assertEqual([player.chips for player in players], [500, 500, 500])
         self.assertEqual([player.name for player in players], ["bot_1", "bot_2", "human_1"])
 
+    def test_build_players_includes_quantum_random_agents(self):
+        players = engine.build_players(
+            quantum_random_agents=1,
+            random_agents=1,
+            humans=1,
+            starting_chips=500,
+        )
+
+        self.assertEqual([type(player) for player in players], [QuantumRandomAgent, RandomAgent, Human])
+        self.assertEqual([player.chips for player in players], [500, 500, 500])
+        self.assertEqual([player.name for player in players], ["quantum_bot_1", "bot_1", "human_1"])
+
     def test_main_runs_configured_table(self):
         with patch("poker_engine.engine.run_game") as run_game:
             result = engine.main(["--random-agents", "2", "--humans", "0", "--quiet"])
 
         self.assertEqual(result, 0)
         run_game.assert_called_once_with(
+            quantum_random_agents=0,
             random_agents=2,
             humans=0,
             starting_chips=1000,
@@ -78,9 +92,45 @@ class EngineEntrypointTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             engine.run_game(random_agents=1, humans=0, show_logging=False)
 
+    def test_run_game_counts_quantum_agents_toward_minimum_players(self):
+        with patch("poker_engine.engine.show_logs"), \
+                patch("poker_engine.engine.Table.run"), \
+                patch("builtins.print"):
+            table = engine.run_game(
+                quantum_random_agents=2,
+                random_agents=0,
+                humans=0,
+                show_logging=False,
+            )
+
+        self.assertEqual(len(table.players), 2)
+        self.assertEqual([type(player) for player in table.players], [QuantumRandomAgent, QuantumRandomAgent])
+
+    def test_run_game_rejects_negative_quantum_agent_count(self):
+        with self.assertRaises(ValueError):
+            engine.run_game(quantum_random_agents=-1, random_agents=3, humans=0, show_logging=False)
+
     def test_main_rejects_too_few_players(self):
         with patch("sys.stderr", new_callable=io.StringIO), self.assertRaises(SystemExit):
             engine.main(["--random-agents", "1", "--humans", "0"])
+
+    def test_main_counts_quantum_agents_toward_minimum_players(self):
+        with patch("poker_engine.engine.run_game") as run_game:
+            result = engine.main([
+                "--quantum-random-agents", "2",
+                "--random-agents", "0",
+                "--humans", "0",
+                "--quiet",
+            ])
+
+        self.assertEqual(result, 0)
+        run_game.assert_called_once_with(
+            quantum_random_agents=2,
+            random_agents=0,
+            humans=0,
+            starting_chips=1000,
+            quiet=True,
+        )
 
 
 if __name__ == "__main__":

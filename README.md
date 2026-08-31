@@ -4,7 +4,7 @@ A Python package for running Texas Hold'em poker simulations from the command li
 
 The project models cards, decks, players, betting rounds, community-card streets, hand evaluation, all-in state, side pots, showdown ranking, and winner distribution. 
 
-It includes both a human command-line player and a simple random agent, making it useful for automated simulations and experimenting with poker strategies.
+It includes a human command-line player, a simple random agent, and a quantum-circuit random agent, making it useful for automated simulations and experimenting with poker strategies.
 
 ## Features
 
@@ -13,6 +13,7 @@ It includes both a human command-line player and a simple random agent, making i
 - Human player model with command-line prompts for legal actions.
 - Human players can type `quit` at any prompt to stop the game immediately.
 - Random agent model for automated simulations.
+- Quantum random agent model using Qiskit Aer circuit measurement for random action and bet sizing.
 - Texas Hold'em table flow:
   - dealer button rotation
   - small blind and big blind posting
@@ -56,6 +57,18 @@ Run a mixed game with three random agents and one human:
 .\.venv\Scripts\poker-engine.exe --random-agents 3 --humans 1
 ```
 
+Run a game with two quantum random agents:
+
+```powershell
+.\.venv\Scripts\poker-engine.exe --quantum-random-agents 2 --random-agents 0
+```
+
+Run a mixed quantum, random, and human game:
+
+```powershell
+.\.venv\Scripts\poker-engine.exe --quantum-random-agents 2 --random-agents 3 --humans 1
+```
+
 Run as a Python module:
 
 ```powershell
@@ -77,10 +90,11 @@ poker-engine --help
 Available options:
 
 ```text
---random-agents     number of random agents to seat
---humans            number of human players to seat
---starting-chips    starting chip stack for each player
---quiet             hide detailed engine logs and only show the final winner
+--quantum-random-agents    number of quantum random agents to seat
+--random-agents            number of random agents to seat
+--humans                   number of human players to seat
+--starting-chips           starting chip stack for each player
+--quiet                    hide detailed engine logs and only show the final winner
 ```
 
 Example:
@@ -100,6 +114,17 @@ table = run_game(random_agents=3, humans=1, starting_chips=1000)
 
 print(table.players)
 print(table.winners)
+```
+
+Run a quantum-agent simulation:
+
+```python
+from poker_engine.engine import run_game
+
+table = run_game(quantum_random_agents=2, random_agents=0, humans=0, starting_chips=1000)
+
+for player in table.players:
+    print(player.name, player.chips)
 ```
 
 Use quiet mode from Python when you only want the final winner printed:
@@ -124,15 +149,16 @@ for player in table.players:
 Build players manually when you need direct control:
 
 ```python
+from poker_engine.models.QuantumRandomAgent import QuantumRandomAgent
 from poker_engine.models.RandomAgent import RandomAgent
 from poker_engine.objects.Deck import Deck
 from poker_engine.objects.Round import Round
 from poker_engine.objects.Table import Table
 
 players = [
+    QuantumRandomAgent("quantum_bot_1", 1000, []),
     RandomAgent("bot_1", 1000, []),
     RandomAgent("bot_2", 1000, []),
-    RandomAgent("bot_3", 1000, []),
 ]
 
 round_state = Round(players)
@@ -210,6 +236,30 @@ table = run_game(random_agents=4, humans=0, quiet=True)
 
 Even with logging disabled, `run_game` still prints the final winner when the game completes.
 
+## Quantum Random Agent
+
+`QuantumRandomAgent` follows the same player contract as `RandomAgent`:
+
+```python
+decision(legal_actions: list[int], call: int, min_raise: int = 100) -> tuple[int, int]
+```
+
+It uses a small Qiskit Aer circuit as a random number generator. For each random integer, the agent:
+
+- chooses the number of qubits needed for the target range
+- applies Hadamard gates to create an even superposition
+- measures the circuit once
+- converts the measured bit string to an integer
+- uses rejection sampling so ranges that are not powers of two remain unbiased
+
+The quantum random integer generator is used for:
+
+- choosing an index from the current legal action list
+- choosing bet amounts
+- choosing raise amounts when a full raise is available
+
+Short all-in raises are handled by committing the remaining chips beyond the call when there is no legal full-raise range.
+
 ## Package Structure
 
 ```text
@@ -221,6 +271,8 @@ src/poker_engine/
   models/
     Human.py           command-line human player
     RandomAgent.py     random automated player
+    QuantumRandomAgent.py
+                       Qiskit-backed quantum random automated player
   objects/
     Card.py            card parsing and numeric ordering
     Deck.py            deck lifecycle and validation
@@ -300,6 +352,7 @@ The suite covers:
 - table lifecycle and reset behavior
 - command-line entrypoint behavior
 - random-agent behavior
+- quantum-random-agent behavior
 - seeded stress simulations
 
 ## Development Notes
@@ -322,9 +375,11 @@ After editing code, run:
 
 - Python 3.10 or newer
 - numpy
+- qiskit
+- qiskit-aer
 
 Dependencies are declared in `pyproject.toml`.
 
 ## Scope
 
-This project is a complete command-line and importable Texas Hold'em simulation engine for deterministic engine testing, human-vs-agent play, and random-agent simulations. It is intentionally focused on engine behavior rather than a graphical interface, online multiplayer, persistence, or advanced bot strategy training.
+This project is a complete command-line and importable Texas Hold'em simulation engine for deterministic engine testing, human-vs-agent play, random-agent simulations, and quantum-random-agent experiments. It is intentionally focused on engine behavior rather than a graphical interface, online multiplayer, persistence, or advanced bot strategy training.

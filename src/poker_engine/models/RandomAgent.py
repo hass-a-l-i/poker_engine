@@ -16,6 +16,7 @@ class RandomAgent(Player):
     def decision(self,
                  legal_actions: list[int],
                  call:int,
+                 min_raise: int = cfg.big_blind,
                  ) -> tuple[int, int]:
         """choose a random legal action and amount."""
         if len(legal_actions) == 0:
@@ -27,6 +28,11 @@ class RandomAgent(Player):
             amount = random.randint(minimum, self.chips)
             return choice, amount
         if str_choice == "Raise":
-            amount = self.chips - call
+            minimum_raise = min_raise
+            maximum_raise = self.chips - call
+            if maximum_raise <= minimum_raise:
+                amount = maximum_raise
+            else:
+                amount = random.randint(minimum_raise, maximum_raise)
             return choice, amount
         return choice, 0

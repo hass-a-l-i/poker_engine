@@ -77,7 +77,8 @@ class Player:
     """inherited methods"""
     def decision(self,
                  legal_actions: list[int],
-                 call:int):
+                 call:int,
+                 min_raise: int = cfg.big_blind):
         """require subclasses to choose a legal poker action."""
         raise NotImplementedError("Decision needed in child class")
 

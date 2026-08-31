@@ -41,14 +41,14 @@ class ScriptedPlayer(Player):
         super().__init__(name, chips, [])
         self.actions = list(actions or [])
 
-    def decision(self, legal_actions, call):
+    def decision(self, legal_actions, call, min_raise=cfg.big_blind):
         if not self.actions:
             raise AssertionError(f"No scripted action left for {self.name}")
         return self.actions.pop(0)
 
 
 class QuittingPlayer(Player):
-    def decision(self, legal_actions, call):
+    def decision(self, legal_actions, call, min_raise=cfg.big_blind):
         raise GameQuit(f"{self.name} quit the game.")
 
 

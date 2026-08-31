@@ -1,354 +1,123 @@
-2026-08-26 21:53:02,396 - root - DEBUG - [Deck.py:30] - Deck Initialised
-2026-08-26 21:53:02,396 - poker_engine.objects.Table - INFO - [Table.py:262] - Initialised game with 4 random agents
-2026-08-26 21:53:02,397 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,397 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,397 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,397 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_2 posts small blind: 50
-2026-08-26 21:53:02,397 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_3 posts big blind: 100
-2026-08-26 21:53:02,397 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,397 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_4 folded
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_1 folded
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_2 calls 50 and raises 9900. Total committed : 9950. Chips remaining : 0
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_2 is all-in!
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,398 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♠6| |♦10| |♣A|
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_3
-2026-08-26 21:53:02,398 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,399 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♠6| |♦10| |♣A| |♦9|
-2026-08-26 21:53:02,399 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,399 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_3
-2026-08-26 21:53:02,399 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,399 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♠6| |♦10| |♣A| |♦9| |♣5|
-2026-08-26 21:53:02,399 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,399 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_3
-2026-08-26 21:53:02,399 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,400 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_2: hand=|♥9|  |♦4|, rank=Pair, score=(2, 8, 13, 9, 5) ### bot_3: hand=|♠4|  |♦6|, rank=Pair, score=(2, 5, 13, 9, 8)
-2026-08-26 21:53:02,400 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_2 with Pair. Winnings : 10100
-2026-08-26 21:53:02,400 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 200: bot_2 wins 200
-2026-08-26 21:53:02,401 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 9900: bot_2 wins 9900
-2026-08-26 21:53:02,401 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,401 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,401 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,401 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,401 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_3 posts small blind: 50
-2026-08-26 21:53:02,401 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_4 posts big blind: 100
-2026-08-26 21:53:02,401 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,401 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_1 folded
-2026-08-26 21:53:02,401 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,402 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♥5| |♣A| |♥2|
-2026-08-26 21:53:02,402 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,402 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_3 bets 6987. Chips remaining : 2863
-2026-08-26 21:53:02,402 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_4 calls 6987. Chips remaining : 2913
-2026-08-26 21:53:02,402 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 6987. Chips remaining : 3113
-2026-08-26 21:53:02,402 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,402 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♥5| |♣A| |♥2| |♠10|
-2026-08-26 21:53:02,402 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_3 checks.
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_4 bets 434. Chips remaining : 2479
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_2 calls 434 and raises 2679. Total committed : 3113. Chips remaining : 0
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_2 is all-in!
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_3 calls 2863. Chips remaining : 0
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_3 is all-in!
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,403 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♥5| |♣A| |♥2| |♠10| |♥Q|
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,403 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_4
-2026-08-26 21:53:02,404 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_2: hand=|♥A|  |♥7|, rank=Flush, score=(6, 13, 11, 6, 4, 1) ### bot_3: hand=|♦J|  |♦10|, rank=Pair, score=(2, 9, 13, 11, 10) ### bot_4: hand=|♣8|  |♠2|, rank=Pair, score=(2, 1, 13, 11, 9)
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_2 with Flush. Winnings : 27521
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 22563: bot_2 wins 22563
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 4758: bot_2 wins 4758
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 200: bot_2 wins 200
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - INFO - [Table.py:228] - bot_3 has no chips - they are out!
-2026-08-26 21:53:02,405 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,405 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,406 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_1 posts small blind: 50
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_2 posts big blind: 100
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_4 calls 100. Chips remaining : 2379
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,406 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♦6| |♥5| |♠2|
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_1 checks.
-2026-08-26 21:53:02,406 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_4 bets 1346. Chips remaining : 1033
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_1 calls 1346. Chips remaining : 8604
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 1346. Chips remaining : 26075
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,407 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♦6| |♥5| |♠2| |♥8|
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_1 bets 490. Chips remaining : 8114
-2026-08-26 21:53:02,407 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_2 folded
-2026-08-26 21:53:02,408 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_4 folded
-2026-08-26 21:53:02,408 - poker_engine.objects.Round - DEBUG - [Round.py:116] - Only one player left: bot_1
-2026-08-26 21:53:02,408 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,408 - poker_engine.objects.Table - DEBUG - [Table.py:179] - bot_1 wins uncontested pot : 4778
-2026-08-26 21:53:02,408 - poker_engine.objects.Table - INFO - [Table.py:213] - Winner(s) : bot_1 due to all players folding. Winnings : 4778
-2026-08-26 21:53:02,408 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,408 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,408 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,408 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_2 posts small blind: 50
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_4 posts big blind: 100
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_1 folded
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,409 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♠J| |♣J| |♥8|
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_4 checks.
-2026-08-26 21:53:02,409 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,410 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♠J| |♣J| |♥8| |♥6|
-2026-08-26 21:53:02,410 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,410 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_2 bets 15347. Chips remaining : 10678
-2026-08-26 21:53:02,410 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_4 calls 933. Chips remaining : 0
-2026-08-26 21:53:02,410 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_4 is all-in!
-2026-08-26 21:53:02,410 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,411 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,411 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♠J| |♣J| |♥8| |♥6| |♥3|
-2026-08-26 21:53:02,411 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,411 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,411 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,412 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_4: hand=|♦K|  |♠3|, rank=Two Pair, score=(3, 10, 2, 12) ### bot_2: hand=|♦3|  |♦2|, rank=Two Pair, score=(3, 10, 2, 7)
-2026-08-26 21:53:02,412 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_4 with Two Pair. Winnings : 16430
-2026-08-26 21:53:02,412 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 2066: bot_4 wins 2066
-2026-08-26 21:53:02,412 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 14364: bot_2 wins 14364
-2026-08-26 21:53:02,412 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,412 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,413 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,413 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,413 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_4 posts small blind: 50
-2026-08-26 21:53:02,413 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_1 posts big blind: 100
-2026-08-26 21:53:02,413 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,413 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_2 folded
-2026-08-26 21:53:02,413 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,413 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♣4| |♣2| |♦4|
-2026-08-26 21:53:02,413 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_4 bets 1872. Chips remaining : 144
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_1 calls 1872 and raises 10920. Total committed : 12792. Chips remaining : 0
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_1 is all-in!
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,414 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♣4| |♣2| |♦4| |♣A|
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_4
-2026-08-26 21:53:02,414 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,414 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♣4| |♣2| |♦4| |♣A| |♦8|
-2026-08-26 21:53:02,415 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,415 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_4
-2026-08-26 21:53:02,415 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,416 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_4: hand=|♥8|  |♣8|, rank=Full House, score=(7, 7, 3) ### bot_1: hand=|♥10|  |♣6|, rank=Pair, score=(2, 3, 13, 9, 7)
-2026-08-26 21:53:02,416 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_4 with Full House. Winnings : 14814
-2026-08-26 21:53:02,416 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 3844: bot_4 wins 3844
-2026-08-26 21:53:02,416 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 10970: bot_1 wins 10970
-2026-08-26 21:53:02,416 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,416 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,417 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,417 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,417 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_1 posts small blind: 50
-2026-08-26 21:53:02,417 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_2 posts big blind: 100
-2026-08-26 21:53:02,417 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,417 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_4 folded
-2026-08-26 21:53:02,417 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,418 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♦2| |♣5| |♦K|
-2026-08-26 21:53:02,418 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,418 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_1 bets 6946. Chips remaining : 3974
-2026-08-26 21:53:02,418 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 6946. Chips remaining : 17996
-2026-08-26 21:53:02,418 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,418 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♦2| |♣5| |♦K| |♥Q|
-2026-08-26 21:53:02,418 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,418 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_1 bets 2104. Chips remaining : 1870
-2026-08-26 21:53:02,419 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_2 folded
-2026-08-26 21:53:02,419 - poker_engine.objects.Round - DEBUG - [Round.py:116] - Only one player left: bot_1
-2026-08-26 21:53:02,419 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,419 - poker_engine.objects.Table - DEBUG - [Table.py:179] - bot_1 wins uncontested pot : 16146
-2026-08-26 21:53:02,419 - poker_engine.objects.Table - INFO - [Table.py:213] - Winner(s) : bot_1 due to all players folding. Winnings : 16146
-2026-08-26 21:53:02,419 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,419 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,419 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_2 posts small blind: 50
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_4 posts big blind: 100
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_1 calls 100. Chips remaining : 17916
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,420 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♦K| |♥8| |♥K|
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,420 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_4 bets 940. Chips remaining : 2948
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_1 folded
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 940. Chips remaining : 17006
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,421 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♦K| |♥8| |♥K| |♥5|
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,421 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_4 checks.
-2026-08-26 21:53:02,422 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,422 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♦K| |♥8| |♥K| |♥5| |♠3|
-2026-08-26 21:53:02,422 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,422 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,422 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_4 bets 2503. Chips remaining : 445
-2026-08-26 21:53:02,422 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 2503. Chips remaining : 14503
-2026-08-26 21:53:02,422 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,423 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_2: hand=|♥6|  |♠K|, rank=Three of a Kind, score=(4, 12, 7, 5) ### bot_4: hand=|♠9|  |♦4|, rank=Pair, score=(2, 12, 8, 7, 4)
-2026-08-26 21:53:02,423 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_2 with Three of a Kind. Winnings : 7136
-2026-08-26 21:53:02,423 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 300: bot_2 wins 300
-2026-08-26 21:53:02,423 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 6786: bot_2 wins 6786
-2026-08-26 21:53:02,423 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 50: bot_4 wins 50
-2026-08-26 21:53:02,423 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,423 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,424 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,424 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_4 posts small blind: 50
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_1 posts big blind: 100
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_2 calls 100 and raises 21489. Total committed : 21589. Chips remaining : 0
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_2 is all-in!
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_4 folded
-2026-08-26 21:53:02,424 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,424 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♠4| |♣10| |♣9|
-2026-08-26 21:53:02,425 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,425 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_1
-2026-08-26 21:53:02,425 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,425 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♠4| |♣10| |♣9| |♥2|
-2026-08-26 21:53:02,425 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,425 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_1
-2026-08-26 21:53:02,426 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,426 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♠4| |♣10| |♣9| |♥2| |♣6|
-2026-08-26 21:53:02,426 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,426 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_1
-2026-08-26 21:53:02,426 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,427 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_1: hand=|♦3|  |♥Q|, rank=High Card, score=(1, 11, 9, 8, 5, 3) ### bot_2: hand=|♥5|  |♠8|, rank=High Card, score=(1, 9, 8, 7, 5, 4)
-2026-08-26 21:53:02,427 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_1 with High Card. Winnings : 21739
-2026-08-26 21:53:02,427 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 150: bot_1 wins 150
-2026-08-26 21:53:02,427 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 100: bot_1 wins 100
-2026-08-26 21:53:02,427 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 21489: bot_2 wins 21489
-2026-08-26 21:53:02,427 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,428 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,428 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,428 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,428 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_1 posts small blind: 50
-2026-08-26 21:53:02,428 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_2 posts big blind: 100
-2026-08-26 21:53:02,428 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,428 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_4 calls 100 and raises 345. Total committed : 445. Chips remaining : 0
-2026-08-26 21:53:02,428 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_4 is all-in!
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_1 calls 395 and raises 17621. Total committed : 18016. Chips remaining : 0
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_1 is all-in!
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,429 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♥10| |♥6| |♣9|
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,429 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♥10| |♥6| |♣9| |♣K|
-2026-08-26 21:53:02,429 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,430 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,430 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,430 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♥10| |♥6| |♣9| |♣K| |♦5|
-2026-08-26 21:53:02,430 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,430 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,430 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,431 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_2: hand=|♥J|  |♥K|, rank=Pair, score=(2, 12, 10, 9, 8) ### bot_1: hand=|♥A|  |♣8|, rank=High Card, score=(1, 13, 12, 9, 8, 7) ### bot_4: hand=|♣J|  |♠3|, rank=High Card, score=(1, 12, 10, 9, 8, 5)
-2026-08-26 21:53:02,431 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_2 with Pair. Winnings : 18611
-2026-08-26 21:53:02,431 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 300: bot_2 wins 300
-2026-08-26 21:53:02,432 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 690: bot_1 wins 690
-2026-08-26 21:53:02,432 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 17621: bot_1 wins 17621
-2026-08-26 21:53:02,432 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,432 - poker_engine.objects.Table - INFO - [Table.py:228] - bot_4 has no chips - they are out!
-2026-08-26 21:53:02,432 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,432 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,433 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,433 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_2 posts small blind: 50
-2026-08-26 21:53:02,433 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_1 posts big blind: 100
-2026-08-26 21:53:02,433 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,433 - poker_engine.objects.Round - DEBUG - [Round.py:143] - bot_2 folded
-2026-08-26 21:53:02,433 - poker_engine.objects.Round - DEBUG - [Round.py:116] - Only one player left: bot_1
-2026-08-26 21:53:02,433 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,434 - poker_engine.objects.Table - DEBUG - [Table.py:179] - bot_1 wins uncontested pot : 150
-2026-08-26 21:53:02,434 - poker_engine.objects.Table - INFO - [Table.py:213] - Winner(s) : bot_1 due to all players folding. Winnings : 150
-2026-08-26 21:53:02,434 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,434 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,434 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,434 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_1 posts small blind: 50
-2026-08-26 21:53:02,434 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_2 posts big blind: 100
-2026-08-26 21:53:02,434 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,435 - poker_engine.objects.Round - DEBUG - [Round.py:204] - bot_1 calls 50 and raises 18261. Total committed : 18311. Chips remaining : 0
-2026-08-26 21:53:02,435 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_1 is all-in!
-2026-08-26 21:53:02,435 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,435 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♠K| |♦9| |♠2|
-2026-08-26 21:53:02,435 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,435 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,435 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,435 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♠K| |♦9| |♠2| |♥7|
-2026-08-26 21:53:02,436 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,436 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,436 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,436 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♠K| |♦9| |♠2| |♥7| |♣2|
-2026-08-26 21:53:02,436 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,436 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,436 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,437 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_1: hand=|♣7|  |♥8|, rank=Two Pair, score=(3, 6, 1, 12) ### bot_2: hand=|♠10|  |♠6|, rank=Pair, score=(2, 1, 12, 9, 8)
-2026-08-26 21:53:02,437 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_1 with Two Pair. Winnings : 18461
-2026-08-26 21:53:02,437 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 200: bot_1 wins 200
-2026-08-26 21:53:02,437 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 18261: bot_1 wins 18261
-2026-08-26 21:53:02,437 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,438 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,438 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,438 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,438 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_2 posts small blind: 50
-2026-08-26 21:53:02,438 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_1 posts big blind: 100
-2026-08-26 21:53:02,438 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,438 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 50. Chips remaining : 21439
-2026-08-26 21:53:02,438 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,439 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♥A| |♠2| |♥10|
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_1 bets 3091. Chips remaining : 15270
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 3091. Chips remaining : 18348
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,439 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♥A| |♠2| |♥10| |♥9|
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_1 checks.
-2026-08-26 21:53:02,439 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_2 bets 10175. Chips remaining : 8173
-2026-08-26 21:53:02,440 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_1 calls 10175. Chips remaining : 5095
-2026-08-26 21:53:02,440 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,440 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♥A| |♠2| |♥10| |♥9| |♠9|
-2026-08-26 21:53:02,440 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,440 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_1 checks.
-2026-08-26 21:53:02,440 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,440 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,441 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_2: hand=|♦10|  |♥J|, rank=Two Pair, score=(3, 9, 8, 13) ### bot_1: hand=|♥7|  |♣8|, rank=Pair, score=(2, 8, 13, 9, 7)
-2026-08-26 21:53:02,441 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_2 with Two Pair. Winnings : 26732
-2026-08-26 21:53:02,441 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 26732: bot_2 wins 26732
-2026-08-26 21:53:02,441 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,442 - root - DEBUG - [Deck.py:53] - Deck Shuffled
-2026-08-26 21:53:02,442 - poker_engine.objects.Table - INFO - [Table.py:43] - Cards Dealt.
-2026-08-26 21:53:02,442 - poker_engine.objects.Table - INFO - [Table.py:268] - Pre-Flop
-2026-08-26 21:53:02,442 - poker_engine.objects.Round - INFO - [Round.py:135] - bot_1 posts small blind: 50
-2026-08-26 21:53:02,442 - poker_engine.objects.Round - INFO - [Round.py:137] - bot_2 posts big blind: 100
-2026-08-26 21:53:02,442 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,442 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_1 calls 50. Chips remaining : 4995
-2026-08-26 21:53:02,442 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,443 - poker_engine.objects.Table - INFO - [Table.py:124] - Flop : |♦J| |♣2| |♦5|
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:149] - bot_2 checks.
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_1 bets 2453. Chips remaining : 2542
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_2 calls 2453. Chips remaining : 32352
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,443 - poker_engine.objects.Table - INFO - [Table.py:124] - Turn : |♦J| |♣2| |♦5| |♠Q|
-2026-08-26 21:53:02,443 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:175] - bot_2 bets 22374. Chips remaining : 9978
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:157] - bot_1 calls 2542. Chips remaining : 0
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - INFO - [Round.py:47] - bot_1 is all-in!
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,444 - poker_engine.objects.Table - INFO - [Table.py:124] - River : |♦J| |♣2| |♦5| |♠Q| |♥5|
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:232] - Begin betting round
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:124] - Only one player can act: bot_2
-2026-08-26 21:53:02,444 - poker_engine.objects.Round - DEBUG - [Round.py:255] - End betting round
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - DEBUG - [Table.py:143] - Hand rankings: bot_2: hand=|♦2|  |♣J|, rank=Two Pair, score=(3, 10, 4, 11) ### bot_1: hand=|♥K|  |♣3|, rank=Pair, score=(2, 4, 12, 11, 10)
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - INFO - [Table.py:146] - Winner(s) : bot_2 with Two Pair. Winnings : 30022
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 10190: bot_2 wins 10190
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - DEBUG - [Table.py:199] - Distributed pot 19832: bot_2 wins 19832
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - DEBUG - [Table.py:204] - Total chips : 40000
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - INFO - [Table.py:228] - bot_1 has no chips - they are out!
-2026-08-26 21:53:02,446 - poker_engine.objects.Table - INFO - [Table.py:257] - All players out. bot_2 wins!
+2026-08-31 16:35:40,290 - Initialised game with 4 random agents and 2 players
+2026-08-31 16:35:40,290 - Cards Dealt.
+2026-08-31 16:35:40,290 - Pre-Flop
+2026-08-31 16:35:40,290 - quantum_bot_2 posts small blind: 50
+2026-08-31 16:35:40,290 - bot_1 posts big blind: 100
+2026-08-31 16:35:40,290 - bot_2 calls 100. Chips remaining : 900
+2026-08-31 16:35:40,290 - bot_3 folded
+2026-08-31 16:35:40,290 - bot_4 calls 100. Chips remaining : 900
+2026-08-31 16:35:40,994 - quantum_bot_1 calls 100 and raises 593. Total committed : 693. Chips remaining : 307
+2026-08-31 16:35:40,994 - quantum_bot_2 calls 643 and raises 307. Total committed : 950. Chips remaining : 0
+2026-08-31 16:35:40,994 - quantum_bot_2 is all-in!
+2026-08-31 16:35:40,994 - bot_1 folded
+2026-08-31 16:35:40,994 - bot_2 calls 900. Chips remaining : 0
+2026-08-31 16:35:40,994 - bot_2 is all-in!
+2026-08-31 16:35:40,994 - bot_4 folded
+2026-08-31 16:35:40,994 - Flop : |♦10| |♠8| |♦K|
+2026-08-31 16:35:40,994 - Only one player can act: quantum_bot_1
+2026-08-31 16:35:40,994 - Turn : |♦10| |♠8| |♦K| |♠4|
+2026-08-31 16:35:40,994 - Only one player can act: quantum_bot_1
+2026-08-31 16:35:40,994 - River : |♦10| |♠8| |♦K| |♠4| |♥9|
+2026-08-31 16:35:40,994 - Only one player can act: quantum_bot_1
+2026-08-31 16:35:41,010 - Winner(s) : quantum_bot_2 with Pair. Winnings : 2893
+2026-08-31 16:35:41,010 - bot_2 has no chips - they are out!
+2026-08-31 16:35:41,010 - Cards Dealt.
+2026-08-31 16:35:41,010 - Pre-Flop
+2026-08-31 16:35:41,010 - bot_1 posts small blind: 50
+2026-08-31 16:35:41,010 - bot_3 posts big blind: 100
+2026-08-31 16:35:41,010 - bot_4 folded
+2026-08-31 16:35:41,010 - Flop : |♥Q| |♦Q| |♥10|
+2026-08-31 16:35:41,010 - bot_1 checks.
+2026-08-31 16:35:41,010 - bot_3 bets 715. Chips remaining : 185
+2026-08-31 16:35:41,010 - quantum_bot_1 folded
+2026-08-31 16:35:41,010 - quantum_bot_2 folded
+2026-08-31 16:35:41,010 - bot_1 folded
+2026-08-31 16:35:41,010 - Winner(s) : bot_3 due to all players folding. Winnings : 865
+2026-08-31 16:35:41,010 - Cards Dealt.
+2026-08-31 16:35:41,010 - Pre-Flop
+2026-08-31 16:35:41,010 - bot_3 posts small blind: 50
+2026-08-31 16:35:41,010 - bot_4 posts big blind: 100
+2026-08-31 16:35:41,010 - quantum_bot_1 calls 100 and raises 171. Total committed : 271. Chips remaining : 36
+2026-08-31 16:35:41,010 - quantum_bot_2 calls 271 and raises 2174. Total committed : 2445. Chips remaining : 448
+2026-08-31 16:35:41,010 - bot_1 calls 850. Chips remaining : 0
+2026-08-31 16:35:41,010 - bot_1 is all-in!
+2026-08-31 16:35:41,010 - bot_3 folded
+2026-08-31 16:35:41,010 - bot_4 folded
+2026-08-31 16:35:41,010 - quantum_bot_1 folded
+2026-08-31 16:35:41,010 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,010 - Flop : |♣A| |♠K| |♦7|
+2026-08-31 16:35:41,010 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,010 - Turn : |♣A| |♠K| |♦7| |♠10|
+2026-08-31 16:35:41,010 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,010 - River : |♣A| |♠K| |♦7| |♠10| |♦10|
+2026-08-31 16:35:41,010 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,010 - Winner(s) : bot_1 with Two Pair. Winnings : 3716
+2026-08-31 16:35:41,010 - Cards Dealt.
+2026-08-31 16:35:41,010 - Pre-Flop
+2026-08-31 16:35:41,010 - bot_4 posts small blind: 50
+2026-08-31 16:35:41,010 - quantum_bot_1 posts big blind: 36
+2026-08-31 16:35:41,010 - quantum_bot_1 is all-in!
+2026-08-31 16:35:41,028 - quantum_bot_2 calls 50 and raises 1748. Total committed : 1798. Chips remaining : 245
+2026-08-31 16:35:41,028 - bot_1 calls 1798 and raises 323. Total committed : 2121. Chips remaining : 0
+2026-08-31 16:35:41,028 - bot_1 is all-in!
+2026-08-31 16:35:41,029 - bot_3 folded
+2026-08-31 16:35:41,029 - bot_4 calls 750. Chips remaining : 0
+2026-08-31 16:35:41,029 - bot_4 is all-in!
+2026-08-31 16:35:41,029 - Flop : |♠7| |♣Q| |♥K|
+2026-08-31 16:35:41,029 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,029 - Turn : |♠7| |♣Q| |♥K| |♦10|
+2026-08-31 16:35:41,030 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,030 - River : |♠7| |♣Q| |♥K| |♦10| |♠J|
+2026-08-31 16:35:41,030 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,032 - Winner(s) : quantum_bot_2 with Straight. Winnings : 4755
+2026-08-31 16:35:41,032 - quantum_bot_1 has no chips - they are out!
+2026-08-31 16:35:41,032 - bot_4 has no chips - they are out!
+2026-08-31 16:35:41,033 - Cards Dealt.
+2026-08-31 16:35:41,033 - Pre-Flop
+2026-08-31 16:35:41,033 - bot_3 posts small blind: 50
+2026-08-31 16:35:41,033 - quantum_bot_2 posts big blind: 100
+2026-08-31 16:35:41,033 - bot_1 folded
+2026-08-31 16:35:41,034 - Flop : |♦5| |♦6| |♠10|
+2026-08-31 16:35:41,034 - bot_3 bets 259. Chips remaining : 691
+2026-08-31 16:35:41,035 - quantum_bot_2 calls 259. Chips remaining : 4318
+2026-08-31 16:35:41,035 - Turn : |♦5| |♦6| |♠10| |♦J|
+2026-08-31 16:35:41,035 - bot_3 checks.
+2026-08-31 16:35:41,037 - quantum_bot_2 bets 2806. Chips remaining : 1512
+2026-08-31 16:35:41,037 - bot_3 calls 691. Chips remaining : 0
+2026-08-31 16:35:41,038 - bot_3 is all-in!
+2026-08-31 16:35:41,038 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,038 - River : |♦5| |♦6| |♠10| |♦J| |♣Q|
+2026-08-31 16:35:41,038 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,039 - Winner(s) : quantum_bot_2 with Two Pair. Winnings : 4165
+2026-08-31 16:35:41,039 - bot_3 has no chips - they are out!
+2026-08-31 16:35:41,039 - Cards Dealt.
+2026-08-31 16:35:41,039 - Pre-Flop
+2026-08-31 16:35:41,039 - quantum_bot_2 posts small blind: 50
+2026-08-31 16:35:41,040 - bot_1 posts big blind: 100
+2026-08-31 16:35:41,040 - quantum_bot_2 calls 50. Chips remaining : 5577
+2026-08-31 16:35:41,040 - Flop : |♠J| |♥7| |♠A|
+2026-08-31 16:35:41,041 - bot_1 checks.
+2026-08-31 16:35:41,042 - quantum_bot_2 checks.
+2026-08-31 16:35:41,042 - Turn : |♠J| |♥7| |♠A| |♥Q|
+2026-08-31 16:35:41,042 - bot_1 bets 170. Chips remaining : 53
+2026-08-31 16:35:41,042 - quantum_bot_2 calls 170. Chips remaining : 5407
+2026-08-31 16:35:41,042 - River : |♠J| |♥7| |♠A| |♥Q| |♣8|
+2026-08-31 16:35:41,042 - bot_1 checks.
+2026-08-31 16:35:41,042 - quantum_bot_2 checks.
+2026-08-31 16:35:41,042 - Winner(s) : quantum_bot_2 with Pair. Winnings : 540
+2026-08-31 16:35:41,042 - Cards Dealt.
+2026-08-31 16:35:41,042 - Pre-Flop
+2026-08-31 16:35:41,042 - bot_1 posts small blind: 50
+2026-08-31 16:35:41,042 - quantum_bot_2 posts big blind: 100
+2026-08-31 16:35:41,042 - bot_1 calls 3. Chips remaining : 0
+2026-08-31 16:35:41,042 - bot_1 is all-in!
+2026-08-31 16:35:41,042 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,042 - Flop : |♦3| |♣2| |♦J|
+2026-08-31 16:35:41,042 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,042 - Turn : |♦3| |♣2| |♦J| |♦2|
+2026-08-31 16:35:41,042 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,042 - River : |♦3| |♣2| |♦J| |♦2| |♦K|
+2026-08-31 16:35:41,042 - Only one player can act: quantum_bot_2
+2026-08-31 16:35:41,042 - Winner(s) : quantum_bot_2 with Flush. Winnings : 153
+2026-08-31 16:35:41,042 - bot_1 has no chips - they are out!
+2026-08-31 16:35:41,042 - All players out. quantum_bot_2 wins!

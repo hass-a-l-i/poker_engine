@@ -121,7 +121,7 @@ class Round:
             remaining_player = next(
                 player for player in self.players if player.active and not player.all_in
             )
-            logger.debug(f"Only one player can act: {remaining_player.name}")
+            logger.info(f"Only one player can act: {remaining_player.name}")
             return True
         return self.players_to_act <= 0
     def post_blinds(self, small_blind_idx: int, big_blind_idx: int) -> None:
@@ -140,13 +140,13 @@ class Round:
         """Resolves (post) a chosen action"""
         if action == cfg.fold:
             player.active = False
-            logger.debug(f"{player.name} folded")
+            logger.info(f"{player.name} folded")
             self._decrement_players_to_act()
         elif action == cfg.check:
             if self.highest_bet != player.current_bet:
                 logger.error("Cannot check here.")
                 raise IllegalMoveError("Cannot check here.")
-            logger.debug(f"{player.name} checks.")
+            logger.info(f"{player.name} checks.")
             self._decrement_players_to_act()
         elif action == cfg.call:
             call_amount = self.highest_bet - player.current_bet
@@ -154,7 +154,7 @@ class Round:
                 logger.error("Cannot call when there is nothing to call.")
                 raise IllegalMoveError("Cannot call when there is nothing to call.")
             committed = self._commit_chips(player, call_amount)
-            logger.debug(f"{player.name} calls {committed}. Chips remaining : {player.chips}")
+            logger.info(f"{player.name} calls {committed}. Chips remaining : {player.chips}")
             self._log_all_in(player)
             self._decrement_players_to_act()
         elif action == cfg.bet:
@@ -172,7 +172,7 @@ class Round:
             self.highest_bet = player.current_bet
             self.min_raise = max(committed, cfg.big_blind)
             self.players_to_act = max(0, self._count_players_who_can_act() - 1)
-            logger.debug(f"{player.name} bets {committed}. Chips remaining : {player.chips}")
+            logger.info(f"{player.name} bets {committed}. Chips remaining : {player.chips}")
             self._log_all_in(player)
         elif action == cfg.raise_:
             raise_amount = bet_amount
@@ -201,7 +201,7 @@ class Round:
                 self.players_to_act = max(0, self._count_players_who_can_act() - 1)
             else:
                 self._decrement_players_to_act()
-            logger.debug(
+            logger.info(
                 f"{player.name} calls {call_amount} and raises {raise_amount}. "
                 f"Total committed : {committed}. Chips remaining : {player.chips}"
             )
@@ -242,7 +242,8 @@ class Round:
                 try:
                     action, amount = player.decision(
                         allowed_actions,
-                        call=self.highest_bet - player.current_bet
+                        call=self.highest_bet - player.current_bet,
+                        min_raise=self.min_raise,
                     )
                     if action not in allowed_actions:
                         raise IllegalMoveError("Impossible action.")

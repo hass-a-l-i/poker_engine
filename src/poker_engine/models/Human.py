@@ -26,8 +26,9 @@ class Human(Player):
 
     def decision(self,
                  legal_actions: list[int],
-                 call:int
-                 ) -> tuple[int, int]:
+                 call:int,
+                 min_raise: int = cfg.big_blind,
+                  ) -> tuple[int, int]:
         """read and return a validated human betting decision."""
         self._print_decision_prompt(legal_actions, call)
         choice = input("Choose action > ").strip()
