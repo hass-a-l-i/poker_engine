@@ -1,10 +1,10 @@
-# Poker Engine
+# Poker Laboratory
 
-A Python package for running Texas Hold'em poker simulations from the command line or from another Python program.
+A Python package for running Texas Hold'em poker simulations, building custom player strategies, and experimenting with bot behavior from the command line or from another Python program.
 
 The project models cards, decks, players, betting rounds, community-card streets, hand evaluation, all-in state, side pots, showdown ranking, and winner distribution. 
 
-It includes a human command-line player, a simple random agent, and a quantum-circuit random agent, making it useful for automated simulations and experimenting with poker strategies.
+It includes a human command-line player, a simple random agent, and a quantum-circuit random agent. The long-term goal is to make Poker Laboratory a small strategy experimentation framework where users can plug in their own player models, run simulations, and compare outcomes.
 
 ## Features
 
@@ -14,6 +14,7 @@ It includes a human command-line player, a simple random agent, and a quantum-ci
 - Human players can type `quit` at any prompt to stop the game immediately.
 - Random agent model for automated simulations.
 - Quantum random agent model using Qiskit Aer circuit measurement for random action and bet sizing.
+- Pluggable player model interface for custom strategies.
 - Texas Hold'em table flow:
   - dealer button rotation
   - small blind and big blind posting
@@ -167,6 +168,53 @@ table = Table(players=players, deck=deck, rnd=round_state)
 table.run()
 ```
 
+## Custom Strategies
+
+Poker Laboratory strategies are player classes. To create your own bot, subclass `Player` and implement `decision()`.
+
+```python
+from poker_engine.config.cfg import PokerSkeleton
+from poker_engine.objects.Player import Player
+
+cfg = PokerSkeleton()
+
+
+class MyStrategy(Player):
+    def decision(
+        self,
+        legal_actions: list[int],
+        call: int,
+        min_raise: int = cfg.big_blind,
+    ) -> tuple[int, int]:
+        if cfg.check in legal_actions:
+            return cfg.check, 0
+        if cfg.call in legal_actions and call <= self.chips // 10:
+            return cfg.call, 0
+        return cfg.fold, 0
+```
+
+Then seat the strategy manually:
+
+```python
+from poker_engine.models.RandomAgent import RandomAgent
+from poker_engine.objects.Deck import Deck
+from poker_engine.objects.Round import Round
+from poker_engine.objects.Table import Table
+
+players = [
+    MyStrategy("my_strategy", 1000, []),
+    RandomAgent("bot_1", 1000, []),
+    RandomAgent("bot_2", 1000, []),
+]
+
+round_state = Round(players)
+deck = Deck.initialise()
+table = Table(players=players, deck=deck, rnd=round_state)
+table.run()
+```
+
+Custom strategies can currently inspect their own hand, chips, current bet, active state, all-in state, and total stake through `self`. Future strategy work will add a shared decision context so custom models can inspect community cards, pot size, street, active players, table position, and stack pressure without reaching into table internals.
+
 ## Human Input
 
 Human players are prompted only with legal actions for their current state.
@@ -292,7 +340,7 @@ src/poker_engine/
 : Builds, validates, shuffles, deals, and receives returned cards.
 
 `Player`
-: Stores shared player state. Human and agent models inherit from this class.
+: Stores shared player state and defines the strategy interface. Human and agent models inherit from this class.
 
 `Round`
 : Handles betting state, legal actions, chip commitment, all-in state, blinds, raises, and betting-round completion.
@@ -376,9 +424,11 @@ After editing code, run:
 - Publish the package on PyPI so it can be installed with `pip install poker-engine`.
 - Add package metadata needed for a public release, including license, project URLs, classifiers, and PyPI-friendly installation docs.
 - Consider moving heavy integrations into optional dependency groups, such as `poker-engine[quantum]`, `poker-engine[ml]`, and `poker-engine[dev]`.
+- Expand Poker Laboratory as a strategy experimentation framework with documented custom strategy examples.
 - Add a Monte Carlo agent that estimates win probability by simulating possible opponent hands and board runouts.
 - Add ML-ready model extensions, including feature extraction, model loading, and illegal-action masking.
 - Add a shared decision-context object so advanced agents can inspect community cards, pot size, street, active players, stack pressure, and table position.
+- Add a higher-level simulation API that accepts custom non-human strategies and returns aggregate performance data.
 - Add a multiple-run simulation argument for non-human games, for example `--runs 1000`.
 - Return and print aggregate simulation results showing how many games each input model type won, such as random-agent wins, quantum-random-agent wins, and future Monte Carlo or ML agent wins.
 - Add tests for multi-run simulations, including total win-count invariants and mixed-agent model reporting.
@@ -394,4 +444,4 @@ Dependencies are declared in `pyproject.toml`.
 
 ## Scope
 
-This project is a complete command-line and importable Texas Hold'em simulation engine for deterministic engine testing, human-vs-agent play, random-agent simulations, and quantum-random-agent experiments. It is intentionally focused on engine behavior rather than a graphical interface, online multiplayer, persistence, or advanced bot strategy training.
+Poker Laboratory is a command-line and importable Texas Hold'em simulation engine for deterministic engine testing, human-vs-agent play, random-agent simulations, quantum-random-agent experiments, and future custom-strategy evaluation. It is intentionally focused on engine behavior and strategy experimentation rather than a graphical interface, online multiplayer, or persistence.
